@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  pxe:
+    build: .
+    container_name: pxe-server
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    env_file:
+      - .env
+    volumes:
+      - ./pxe:/pxe

@@ -1,0 +1,9 @@
+#!ipxe
+set base http://192.168.1.XX
+
+kernel ${base}/boot/vmlinuz-lts console=tty0 modules=loop,squashfs quiet nomodeset 
+    alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v3.20/main 
+    modloop=${base}/boot/modloop-lts
+
+initrd ${base}/boot/initramfs-lts
+boot
