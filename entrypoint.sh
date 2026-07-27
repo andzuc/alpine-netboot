@@ -5,12 +5,14 @@ ALPINE_VERSION=${ALPINE_VERSION:-3.20.3}
 SERVER_IP=${SERVER_IP:-192.168.1.100}
 ARCH=${ARCH:-x86_64}
 INTERFACE=${INTERFACE:-eth0}
+PXE_MAC=${PXE_MAC:-aa:bb:cc:dd:ee:ff}
 
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
 echo "Server IP      : ${SERVER_IP}"
 echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
+echo "PXE MAC        : ${PXE_MAC}"
 
 # Scarica Alpine netboot solo se non presente
 if [ ! -f /pxe/boot/vmlinuz-lts ]; then
@@ -28,32 +30,27 @@ fi
 
 # Genera la configurazione dnsmasq al volo
 cat > /etc/dnsmasq.conf << EOF
-# Ascolta solo sull'interfaccia fisica
-interface=${INTERFACE}
+# Ascolta solo su questo IP
+listen-address=${SERVER_IP}
 bind-interfaces
-
-# Proxy DHCP
-dhcp-range=192.168.101.0,proxy
 
 # TFTP
 enable-tftp
 tftp-root=/pxe
 
-# === Configurazione PXE corretta ===
-# BIOS (Arch 00000)
-pxe-service=x86PC, "Boot Alpine", boot/vmlinuz-lts
+# DHCP solo per il MAC specificato
+dhcp-host=${PXE_MAC},192.168.101.160,set:pxe
+dhcp-range=192.168.101.160,192.168.101.160,12h
 
-# UEFI x86_64 (Arch 00007)
-pxe-service=x86-64_EFI, "Boot Alpine UEFI", boot/vmlinuz-lts
+dhcp-option=tag:pxe,option:router,192.168.101.1
+dhcp-option=tag:pxe,option:dns-server,1.1.1.1,8.8.8.8
 
-# Opzionale: forza next-server
-dhcp-option=option:tftp-server,${SERVER_IP}
-dhcp-option=option:bootfile-name,boot/vmlinuz-lts
+# Boot file
+dhcp-boot=tag:pxe,boot/vmlinuz-lts,,${SERVER_IP}
 
 log-dhcp
-log-queries
 log-facility=-
 EOF
 
-echo ">>> Avvio dnsmasq solo su ${INTERFACE}..."
+echo ">>> Avvio dnsmasq su ${INTERFACE} (DHCP solo per ${PXE_MAC})..."
 exec dnsmasq --no-daemon -C /etc/dnsmasq.conf
