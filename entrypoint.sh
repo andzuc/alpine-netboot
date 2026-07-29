@@ -10,6 +10,7 @@ PXE_MAC=${PXE_MAC:-aa:bb:cc:dd:ee:ff}
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
 echo "Server IP      : ${SERVER_IP}"
+echo "Router IP      : ${ROUTER_IP}"
 echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
@@ -61,11 +62,16 @@ tftp-root=/pxe
 dhcp-host=${PXE_MAC},192.168.101.160,set:pxe
 dhcp-range=192.168.101.160,192.168.101.160,12h
 
-dhcp-option=tag:pxe,option:router,192.168.101.1
-dhcp-option=tag:pxe,option:dns-server,1.1.1.1,8.8.8.8
+# Riconoscimento iPXE
+dhcp-match=set:ipxe,175
+
+# Gateway e DNS
+dhcp-option=tag:pxe,option:router,${ROUTER_IP}
+dhcp-option=tag:pxe,option:dns-server,${ROUTER_IP}
 
 # Boot file
-dhcp-boot=tag:pxe,undionly.kpxe,,${SERVER_IP}
+dhcp-boot=tag:pxe,tag:!ipxe,undionly.kpxe,,${SERVER_IP}
+dhcp-boot=tag:pxe,tag:ipxe,tftp://${SERVER_IP}/boot.ipxe,,${SERVER_IP}
 
 log-dhcp
 log-facility=-
