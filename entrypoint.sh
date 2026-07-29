@@ -14,21 +14,40 @@ echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
 
+if [ ! -f /pxe/undionly.kpxe ]; then
+    echo ">>> Download undionly.kpxe..."
+    wget -P /pxe https://boot.ipxe.org/undionly.kpxe
+    echo ">>> Download complete"
+fi
+
 # Scarica Alpine netboot solo se non presente
 if [ ! -f /pxe/boot/vmlinuz-lts ]; then
-    echo ">>> Scarico Alpine netboot..."
+    echo ">>> Download Alpine netboot..."
     mkdir -p /pxe/boot
     NETBOOT_URL="https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/releases/${ARCH}/alpine-netboot-${ALPINE_VERSION}-${ARCH}.tar.gz"
     echo ">>> URL: ${NETBOOT_URL}"
     wget -q --show-progress -O /tmp/netboot.tar.gz "${NETBOOT_URL}"
     tar -xzf /tmp/netboot.tar.gz -C /pxe
     rm /tmp/netboot.tar.gz
-    echo ">>> Download completato"
-else
-    echo ">>> File Alpine già presenti. Skip download."
+    echo ">>> Download complete"
 fi
 
-# Genera la configurazione dnsmasq al volo
+# iPXE config
+cat > /pxe/boot.ipxe << EOF
+#!ipxe
+
+dhcp
+
+kernel tftp://${SERVER_IP}/boot/vmlinuz-lts \
+    console=tty0 modules=loop,squashfs quiet nomodeset \
+    alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \
+    modloop=tftp://${SERVER_IP}/boot/modloop-lts
+
+initrd tftp://${SERVER_IP}/boot/initramfs-lts
+boot
+EOF
+
+# dnsmasq config
 cat > /etc/dnsmasq.conf << EOF
 # Ascolta solo su questo IP
 listen-address=${SERVER_IP}
@@ -46,11 +65,11 @@ dhcp-option=tag:pxe,option:router,192.168.101.1
 dhcp-option=tag:pxe,option:dns-server,1.1.1.1,8.8.8.8
 
 # Boot file
-dhcp-boot=tag:pxe,boot/vmlinuz-lts,,${SERVER_IP}
+dhcp-boot=tag:pxe,undionly.kpxe,,${SERVER_IP}
 
 log-dhcp
 log-facility=-
 EOF
 
-echo ">>> Avvio dnsmasq su ${INTERFACE} (DHCP solo per ${PXE_MAC})..."
+echo ">>> Start dnsmasq on ${INTERFACE} (DHCP only for ${PXE_MAC})..."
 exec dnsmasq --no-daemon -C /etc/dnsmasq.conf

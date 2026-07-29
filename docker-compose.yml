@@ -9,4 +9,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./pxe:/pxe
+      - alpine-netboot:/pxe
+volumes:
+  alpine-netboot:
