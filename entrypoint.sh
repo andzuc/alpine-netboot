@@ -30,6 +30,7 @@ if [ ! -f /pxe/boot/vmlinuz-lts ]; then
     wget -q --show-progress -O /tmp/netboot.tar.gz "${NETBOOT_URL}"
     tar -xzf /tmp/netboot.tar.gz -C /pxe
     rm /tmp/netboot.tar.gz
+    chmod -R a+r /pxe
     echo ">>> Download complete"
 fi
 
