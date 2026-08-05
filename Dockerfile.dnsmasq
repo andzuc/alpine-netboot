@@ -1,4 +1,6 @@
-FROM alpine:3.20
+ARG ALPINE_BASE_VERSION
+FROM alpine:${ALPINE_BASE_VERSION}
+
 RUN apk add --no-cache dnsmasq wget
 
 COPY entrypoint.sh /entrypoint.sh

@@ -38,15 +38,22 @@ fi
 cat > /pxe/boot.ipxe << EOF
 #!ipxe
 
-dhcp
+echo === Alpine Netboot ===
+dhcp || goto failed
 
-kernel tftp://${SERVER_IP}/boot/vmlinuz-lts \
-    console=tty0 modules=loop,squashfs quiet nomodeset \
-    alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \
-    modloop=tftp://${SERVER_IP}/boot/modloop-lts
+set base http://${SERVER_IP}/boot
 
-initrd tftp://${SERVER_IP}/boot/initramfs-lts
-boot
+kernel \${base}/vmlinuz-lts \\
+    console=tty0 modules=loop,squashfs quiet nomodeset \\
+    alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \\
+    modloop=\${base}/modloop-lts || goto failed
+
+initrd \${base}/initramfs-lts || goto failed
+boot || goto failed
+
+:failed
+echo Boot failed
+shell
 EOF
 
 # dnsmasq config

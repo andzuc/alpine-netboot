@@ -1,7 +1,11 @@
 services:
-  pxe:
-    build: .
-    container_name: pxe-server
+  pxe-dnsmasq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dnsmasq
+      args:
+        ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
+    container_name: pxe-dnsmasq
     restart: unless-stopped
     network_mode: host
     cap_add:
@@ -10,5 +14,16 @@ services:
       - .env
     volumes:
       - alpine-netboot:/pxe
+  pxe-http:
+    build:
+      context: .
+      dockerfile: Dockerfile.httpd
+      args:
+        ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
+    container_name: pxe-httpd
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - alpine-netboot:/pxe:ro
 volumes:
   alpine-netboot:
