@@ -1,0 +1,3 @@
+[submodule "virt-n270"]
+	path = virt-n270
+	url = git@github.com:andzuc/virt-n270.git

@@ -1,0 +1,82 @@
+name: build-images
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+    inputs:
+      base_image:
+        description: 'Vagrant base image'
+        required: true
+
+env:
+  BASE_IMAGE: ${{ github.event.inputs.base_image || vars.BASE_IMAGE }}
+  QEMU_ARCH: 'x86'
+  QEMU_MACH: 'q35'
+  QEMU_CPU: 'qemu64'
+  DEB_ARCH: 'amd64'
+  GITHUB_CONTEXT: ${{ toJson(github) }}
+  REPO_NAME: ${{ github.event.repository.name }}
+  REPO_OWNER: ${{ github.repository_owner }}
+  INTNET: 172.21.1.0/24
+  ANSIBLE_ARGS: '-t vars -t ping -t target'
+
+jobs:
+  build-n270-zrouter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump github context
+        run: echo "$GITHUB_CONTEXT"
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - name: Install QEMU, libvirt, intnet
+        run: |
+          wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends \
+           qemu-system-$(echo ${{ env.QEMU_ARCH }}|sed 's/_/-/') libvirt-daemon-system ebtables libguestfs-tools \
+           dnsmasq vagrant ruby-fog-libvirt virtinst qemu-utils libvirt-dev xmlstarlet
+          sudo usermod -a -G libvirt,kvm "$USER"
+          id libvirt-qemu
+          sudo setfacl -m u:libvirt-qemu:rwx /home/runner
+          sudo getfacl -e /home/runner
+          ls -ld /home/runner
+          # chgrp -R docker /home/runner/work
+          sudo systemctl start libvirtd
+          sudo systemctl status libvirtd
+          # sudo -u libvirt-qemu ls -lR /home/runner/work
+          sudo ip link add intnet type bridge
+          sudo ip link set intnet up
+          echo "ip link ls:"
+          ip link ls
+          echo "virsh net-list --all:"
+          virsh net-list --all
+      - name: Build image
+        shell: sudo -s -u runner source {0}
+        run: |
+          id
+          export INTNET="${{ env.INTNET }}"
+          vagrant plugin install vagrant-libvirt
+          touch build.log
+          screen -L -Logfile build.log -DmS build-image ./bin/provision &
+          BUILDPID=$!
+          tail --pid=$BUILDPID -f build.log
+          ./bin/down
+          IMAGE_VERSION=$(virt-utils/get-box-version "andreazuccherelli/debian-stable" build.log)
+          echo "IMAGE_VERSION=${IMAGE_VERSION}.${{ github.run_number }}"|tee -a "${{ github.env }}"
+      - name: Build Vagrant box
+        shell: sudo -s -u runner source {0}
+        run: |
+          id
+          sudo virt-utils/build-vagrant "${{ env.REPO_NAME }}" debian-stable-i386_main.img $(virt-utils/dump_disks main)
+      - name: Upload VAGRANT image to Vagrant Cloud
+        env:
+          HCP_CLIENT_ID: ${{ secrets.HCP_CLIENT_ID }}
+          HCP_CLIENT_SECRET: ${{ secrets.HCP_CLIENT_SECRET }}
+          VAGRANT_USER: ${{ secrets.VAGRANT_USER }}
+          VAGRANT_ACCESS_TOKEN: ${{ secrets.VAGRANT_ACCESS_TOKEN }}
+        run: ./virt-utils/vagrant/upload ${{ env.IMAGE_VERSION }}
