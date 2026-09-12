@@ -3,29 +3,29 @@ networks:
     name: vnet
     driver: macvlan
     driver_opts:
-      parent: ${INTERFACE}
+      parent: ${INTERFACE:-intnet}
     ipam:
       config:
-        - subnet: ${VNET}
-          gateway: ${ROUTER_IP}
+        - subnet: ${VNET:-192.168.101.0/24}
+          gateway: ${ROUTER_IP:-192.168.101.1}
 
 services:
   pxe-dnsmasq:
     build:
       context: dnsmasq
       args:
-        ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
+        - ALPINE_BASE_VERSION=3.20
     container_name: pxe-dnsmasq
     restart: unless-stopped
     networks:
       vnet:
-        ipv4_address: ${DNSMASQ_IP}
+        ipv4_address: ${DNSMASQ_IP:-192.168.101.105}
     cap_add:
       - NET_ADMIN
     environment:
-      - INTERFACE
-      - SERVER_IP=${DNSMASQ_IP}
-      - ROUTER_IP
+      - INTERFACE=${INTERFACE:-intnet}
+      - SERVER_IP=${DNSMASQ_IP:-192.168.101.105}
+      - ROUTER_IP=${ROUTER_IP:-192.168.101.1}
       - PXE_MAC
       - ALPINE_VERSION
       - ARCH
@@ -35,12 +35,12 @@ services:
     build:
       context: httpd
       args:
-        ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
+        - ALPINE_BASE_VERSION=3.20
     container_name: pxe-httpd
     restart: unless-stopped
     networks:
       vnet:
-        ipv4_address: ${HTTPD_IP}
+        ipv4_address: ${HTTPD_IP:-192.168.101.106}
     volumes:
       - alpine-netboot:/pxe:ro
   pxe-ansible:
@@ -49,7 +49,7 @@ services:
     container_name: pxe-ansible
     networks:
       vnet:
-        ipv4_address: ${ANSIBLE_IP}
+        ipv4_address: ${ANSIBLE_IP:-192.168.101.107}
 
 volumes:
   alpine-netboot:
