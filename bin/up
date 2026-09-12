@@ -9,8 +9,8 @@ docker compose --progress plain build
 docker compose up -d
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
-    export VM_TITLE
-    export PXE_MAC
+    export VM_NAME="${VM_TITLE}"
+    export VM_MAC="${PXE_MAC}"
     cd virt-n270
-    vagrant up
+    bin/up_virt
 fi

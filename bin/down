@@ -6,10 +6,9 @@ cd "${MYDIR}/.."
 set -e
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
-    export VM_TITLE
-    export PXE_MAC
+    export VM_NAME="${VM_TITLE}"
     cd virt-n270
-    vagrant destroy -f
+    bin/down_virt
 fi
 
 docker compose down
