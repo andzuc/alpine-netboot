@@ -59,8 +59,18 @@ fi
 cat > /pxe/boot.ipxe << EOF
 #!ipxe
 
-echo === Alpine Netboot ===
-dhcp || goto failed
+# Se abbiamo già un IP, usiamo quello, altrimenti facciamo DHCP
+isset \${ip} && goto already_configured
+
+echo No IP yet, trying DHCP...
+dhcp && goto dhcp_ok
+goto failed
+
+:already_configured
+echo Already configured with IP \${ip}
+
+:dhcp_ok
+echo Using IP: \${ip}
 
 set base http://${HTTPD_IP}/boot
 
