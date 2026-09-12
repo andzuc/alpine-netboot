@@ -1,3 +1,15 @@
+networks:
+  extnet:
+    driver: bridge
+  intnet:
+    name: intnet
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: intnet
+    ipam:
+      config:
+        - subnet: ${INTNET}
+
 services:
   pxe-dnsmasq:
     build:
@@ -6,11 +18,18 @@ services:
         ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
     container_name: pxe-dnsmasq
     restart: unless-stopped
-    network_mode: host
+    networks:
+      - intnet
+      - extnet
     cap_add:
       - NET_ADMIN
-    env_file:
-      - .env
+    environment:
+      - INTERFACE
+      - SERVER_IP
+      - ROUTER_IP
+      - PXE_MAC
+      - ALPINE_VERSION
+      - ARCH
     volumes:
       - alpine-netboot:/pxe
   pxe-httpd:
@@ -20,13 +39,19 @@ services:
         ALPINE_BASE_VERSION: ${ALPINE_BASE_VERSION}
     container_name: pxe-httpd
     restart: unless-stopped
-    network_mode: host
+    networks:
+      - intnet
+      - extnet
     volumes:
       - alpine-netboot:/pxe:ro
   pxe-ansible:
     build:
       context: alpine
     container_name: pxe-alpine
+    networks:
+      - intnet
+      - extnet
     network_mode: host
+
 volumes:
   alpine-netboot:

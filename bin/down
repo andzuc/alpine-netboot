@@ -3,6 +3,7 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PATH="${PATH}:${MYDIR}"
 cd "${MYDIR}/.."
 [ -f .env ]&&source .env
+set -e
 
 if [ -n "${INTNET}" ]; then
     cd virt-n270
