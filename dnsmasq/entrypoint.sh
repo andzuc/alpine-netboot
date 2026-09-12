@@ -10,11 +10,13 @@ PXE_MAC=${PXE_MAC:-aa:bb:cc:dd:ee:ff}
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
 echo "Server IP      : ${SERVER_IP}"
+echo "Httpd IP       : ${HTTPD_IP}"
 echo "Router IP      : ${ROUTER_IP}"
 echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
 
+# chainload iPXE: https://ipxe.org/howto/chainloading
 if [ ! -f /pxe/undionly.kpxe ]; then
     echo ">>> Download undionly.kpxe..."
     wget -P /pxe https://boot.ipxe.org/undionly.kpxe
@@ -41,7 +43,7 @@ cat > /pxe/boot.ipxe << EOF
 echo === Alpine Netboot ===
 dhcp || goto failed
 
-set base http://${SERVER_IP}/boot
+set base http://${HTTPD_IP}/boot
 
 kernel \${base}/vmlinuz-lts \\
     console=tty0 modules=loop,squashfs quiet nomodeset \\
@@ -67,8 +69,8 @@ enable-tftp
 tftp-root=/pxe
 
 # DHCP solo per il MAC specificato
-dhcp-host=${PXE_MAC},192.168.101.160,set:pxe
-dhcp-range=192.168.101.160,192.168.101.160,12h
+dhcp-host=${PXE_MAC},192.168.102.160,set:pxe
+dhcp-range=192.168.102.160,192.168.102.160,12h
 
 # Riconoscimento iPXE
 dhcp-match=set:ipxe,175
