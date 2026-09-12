@@ -5,9 +5,11 @@ cd "${MYDIR}/.."
 [ -f .env ]&&source .env
 set -e
 
-if [ -n "${INTNET}" ]; then
+if [ "${INTERFACE-intnet}" = "intnet" ]; then
+    export VM_TITLE
+    export PXE_MAC
     cd virt-n270
-    vagrant halt
+    vagrant destroy -f
 fi
 
 docker compose down
