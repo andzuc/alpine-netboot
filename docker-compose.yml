@@ -6,8 +6,8 @@ networks:
       parent: ${INTERFACE:-intnet}
     ipam:
       config:
-        - subnet: ${VNET:-192.168.102.0/24}
-          gateway: ${ROUTER_IP:-192.168.102.1}
+        - subnet: ${VNET:-192.168.101.0/24}
+          gateway: ${ROUTER_IP:-192.168.101.1}
 
 services:
   pxe-dnsmasq:
@@ -18,18 +18,18 @@ services:
     container_name: pxe-dnsmasq
     networks:
       vnet:
-        ipv4_address: ${DNSMASQ_IP:-192.168.102.110}
+        ipv4_address: ${DNSMASQ_IP:-192.168.101.110}
     cap_add:
       - NET_ADMIN
     environment:
       - INTERFACE=${INTERFACE:-intnet}
-      - SERVER_IP=${DNSMASQ_IP:-192.168.102.110}
-      - HTTPD_IP=${HTTPD_IP:-192.168.102.111}
-      - ROUTER_IP=${ROUTER_IP:-192.168.102.1}
+      - SERVER_IP=${DNSMASQ_IP:-192.168.101.110}
+      - HTTPD_IP=${HTTPD_IP:-192.168.101.111}
+      - ROUTER_IP=${ROUTER_IP:-192.168.101.1}
       - ALPINE_VERSION
       - ARCH
       - PXE_MAC
-      - PXE_IP=${PXE_IP:-192.168.102.160}
+      - PXE_IP=${PXE_IP:-192.168.101.160}
     volumes:
       - alpine-netboot:/pxe
   pxe-httpd:
@@ -40,7 +40,7 @@ services:
     container_name: pxe-httpd
     networks:
       vnet:
-        ipv4_address: ${HTTPD_IP:-192.168.102.111}
+        ipv4_address: ${HTTPD_IP:-192.168.101.111}
     volumes:
       - alpine-netboot:/pxe:ro
   pxe-ansible:
@@ -49,7 +49,7 @@ services:
     container_name: pxe-ansible
     networks:
       vnet:
-        ipv4_address: ${ANSIBLE_IP:-192.168.102.112}
+        ipv4_address: ${ANSIBLE_IP:-192.168.101.112}
 
 volumes:
   alpine-netboot:
