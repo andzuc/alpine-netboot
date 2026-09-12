@@ -1,0 +1,12 @@
+#!/bin/bash
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PATH="${PATH}:${MYDIR}"
+cd "${MYDIR}/.."
+[ -f .env ]&&source .env
+
+docker compose up -d --build
+
+if [ -n "${INTNET}" ]; then
+    cd virt-n270
+    vagrant up
+fi
