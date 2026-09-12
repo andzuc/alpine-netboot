@@ -16,7 +16,6 @@ services:
       args:
         - ALPINE_BASE_VERSION=3.20
     container_name: pxe-dnsmasq
-    restart: unless-stopped
     networks:
       vnet:
         ipv4_address: ${DNSMASQ_IP:-192.168.102.110}
@@ -27,9 +26,10 @@ services:
       - SERVER_IP=${DNSMASQ_IP:-192.168.102.110}
       - HTTPD_IP=${HTTPD_IP:-192.168.102.111}
       - ROUTER_IP=${ROUTER_IP:-192.168.102.1}
-      - PXE_MAC
       - ALPINE_VERSION
       - ARCH
+      - PXE_MAC
+      - PXE_IP=${PXE_IP:-192.168.102.160}
     volumes:
       - alpine-netboot:/pxe
   pxe-httpd:
@@ -38,7 +38,6 @@ services:
       args:
         - ALPINE_BASE_VERSION=3.20
     container_name: pxe-httpd
-    restart: unless-stopped
     networks:
       vnet:
         ipv4_address: ${HTTPD_IP:-192.168.102.111}

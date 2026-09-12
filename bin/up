@@ -5,7 +5,8 @@ cd "${MYDIR}/.."
 [ -f .env ]&&source .env
 set -e
 
-docker compose --progress plain up -d --build
+docker compose --progress plain build
+docker compose up -d
 
 if [ -n "${INTNET}" ]; then
     cd virt-n270

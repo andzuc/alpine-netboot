@@ -2,10 +2,28 @@
 set -e
 
 ALPINE_VERSION=${ALPINE_VERSION:-3.20.3}
-SERVER_IP=${SERVER_IP:-192.168.1.100}
+if [ -z "${SERVER_IP+x}" ]; then
+    echo "SERVER_IP is undefined"
+    exit 1
+fi
+if [ -z "${HTTPD_IP+x}" ]; then
+    echo "HTTPD_IP is undefined"
+    exit 1
+fi
+if [ -z "${ROUTER_IP+x}" ]; then
+    echo "ROUTER_IP is undefined"
+    exit 1
+fi
 ARCH=${ARCH:-x86_64}
-INTERFACE=${INTERFACE:-eth0}
-PXE_MAC=${PXE_MAC:-aa:bb:cc:dd:ee:ff}
+INTERFACE=$(ip addr show | awk -v ip="${SERVER_IP}" '$0 ~ "inet " ip "/" {print $NF}' | cut -d: -f1)
+if [ -z "${PXE_MAC+x}" ]; then
+    echo "PXE_MAC is undefined"
+    exit 1
+fi
+if [ -z "${PXE_IP+x}" ]; then
+    echo "PXE_IP is undefined"
+    exit 1
+fi
 
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
@@ -15,6 +33,7 @@ echo "Router IP      : ${ROUTER_IP}"
 echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
+echo "PXE IP         : ${PXE_IP}"
 
 # chainload iPXE: https://ipxe.org/howto/chainloading
 if [ ! -f /pxe/undionly.kpxe ]; then
@@ -69,8 +88,8 @@ enable-tftp
 tftp-root=/pxe
 
 # DHCP solo per il MAC specificato
-dhcp-host=${PXE_MAC},192.168.102.160,set:pxe
-dhcp-range=192.168.102.160,192.168.102.160,12h
+dhcp-host=${PXE_MAC},${PXE_IP},set:pxe
+dhcp-range=${PXE_IP},${PXE_IP},12h
 
 # Riconoscimento iPXE
 dhcp-match=set:ipxe,175
