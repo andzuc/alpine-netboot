@@ -1,14 +1,13 @@
 networks:
-  extnet:
-    driver: bridge
-  intnet:
-    name: intnet
-    driver: bridge
+  vnet:
+    name: vnet
+    driver: macvlan
     driver_opts:
-      com.docker.network.bridge.name: intnet
+      parent: ${INTERFACE}
     ipam:
       config:
-        - subnet: ${INTNET}
+        - subnet: ${VNET}
+          gateway: ${ROUTER_IP}
 
 services:
   pxe-dnsmasq:
@@ -19,13 +18,13 @@ services:
     container_name: pxe-dnsmasq
     restart: unless-stopped
     networks:
-      - intnet
-      - extnet
+      vnet:
+        ipv4_address: ${DNSMASQ_IP}
     cap_add:
       - NET_ADMIN
     environment:
       - INTERFACE
-      - SERVER_IP
+      - SERVER_IP=${DNSMASQ_IP}
       - ROUTER_IP
       - PXE_MAC
       - ALPINE_VERSION
@@ -40,18 +39,17 @@ services:
     container_name: pxe-httpd
     restart: unless-stopped
     networks:
-      - intnet
-      - extnet
+      vnet:
+        ipv4_address: ${HTTPD_IP}
     volumes:
       - alpine-netboot:/pxe:ro
   pxe-ansible:
     build:
-      context: alpine
-    container_name: pxe-alpine
+      context: ansible
+    container_name: pxe-ansible
     networks:
-      - intnet
-      - extnet
-    network_mode: host
+      vnet:
+        ipv4_address: ${ANSIBLE_IP}
 
 volumes:
   alpine-netboot:
