@@ -27,9 +27,9 @@ fi
 
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
+echo "Router IP      : ${ROUTER_IP}"
 echo "Server IP      : ${SERVER_IP}"
 echo "Httpd IP       : ${HTTPD_IP}"
-echo "Router IP      : ${ROUTER_IP}"
 echo "Architecture   : ${ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
