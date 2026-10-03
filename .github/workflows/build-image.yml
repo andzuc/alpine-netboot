@@ -23,12 +23,11 @@ env:
   VM_TITLE: ${{ github.event.inputs.vm_title || vars.VM_TITLE }}
   GITHUB_CONTEXT: ${{ toJson(github) }}
   ANSIBLE_ARGS: '-t vars -t ping -t target'
-  TIMEOUT: 20
 
 jobs:
   build-n270:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ fromJSON(env.TIMEOUT) }}
+    timeout-minutes: 15
     steps:
       - name: Dump github context
         run: echo "$GITHUB_CONTEXT"
