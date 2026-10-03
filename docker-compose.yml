@@ -3,6 +3,7 @@ x-dnsmasq_ip: &dnsmasq_ip ${DNSMASQ_IP:-192.168.101.110}
 x-httpd_ip: &httpd_ip ${HTTPD_IP:-192.168.101.111}
 x-ansible_ip: &ansible_ip ${ANSIBLE_IP:-192.168.101.112}
 x-pxe_ip: &pxe_ip ${PXE_IP:-192.168.101.160}
+x-pxe_console: &pxe_console ${PXE_CONSOLE:-tty0}
 
 networks:
   vnet:
@@ -35,6 +36,7 @@ services:
       ALPINE_ARCH:
       PXE_MAC:
       PXE_IP: *pxe_ip
+      PXE_CONSOLE: *pxe_console
     volumes:
       - alpine-netboot:/pxe
   pxe-httpd:

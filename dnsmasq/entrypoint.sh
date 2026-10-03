@@ -24,6 +24,7 @@ if [ -z "${PXE_IP+x}" ]; then
     echo "PXE_IP is undefined"
     exit 1
 fi
+PXE_CONSOLE=${PXE_CONSOLE:-tty0}
 
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
@@ -34,6 +35,7 @@ echo "Architecture   : ${ALPINE_ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
 echo "PXE IP         : ${PXE_IP}"
+echo "PXE CONSOLE    : ${PXE_CONSOLE}"
 
 # chainload iPXE: https://ipxe.org/howto/chainloading
 if [ ! -f /pxe/undionly.kpxe ]; then
@@ -75,7 +77,9 @@ echo Using IP: \${ip}
 set base http://${HTTPD_IP}/boot
 
 kernel \${base}/vmlinuz-lts \\
-    console=tty0 modules=loop,squashfs quiet nomodeset \\
+    earlyprintk=serial console=tty0 console=${PXE_CONSOLE} \\
+    loglevel=8 \\
+    modules=loop,squashfs nomodeset \\
     alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \\
     modloop=\${base}/modloop-lts || goto failed
 
