@@ -8,6 +8,9 @@ if [ "${INTERFACE-intnet}" = "intnet" ]; then
     export VM_NAME="${VM_TITLE}"
     cd virt-n270
     bin/down_virt
+    PROFILE="virt"
+else
+    export VM_TITLE="novm"
 fi
 
-docker compose down
+docker compose --profile "${PROFILE}" down

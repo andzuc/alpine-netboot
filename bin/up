@@ -5,8 +5,14 @@ cd "${MYDIR}/.."
 [ -f .env ]&&source .env
 set -e
 
-docker compose --progress plain build
-docker compose up --wait
+if [ "${INTERFACE-intnet}" = "intnet" ]; then
+    PROFILE="virt"
+else
+    export VM_TITLE="novm"
+fi
+
+docker compose --profile "${PROFILE}" --progress plain build
+docker compose --profile "${PROFILE}" up --wait
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
     export VM_NAME="${VM_TITLE}"
@@ -15,4 +21,4 @@ if [ "${INTERFACE-intnet}" = "intnet" ]; then
     bin/up_virt
 fi
 
-docker compose logs -f
+docker compose --profile "${PROFILE}" logs -f

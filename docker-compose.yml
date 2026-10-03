@@ -49,13 +49,15 @@ services:
     volumes:
       - alpine-netboot:/pxe:ro
   pxe-vm-logger:
+    profiles:
+      - virt
     build:
       context: vm-logger
       args:
         - ALPINE_BASE_VERSION=3.20
     container_name: pxe-vm-logger
     environment:
-      VM_TITLE:
+      VM_TITLE: ${VM_TITLE}
     volumes:
       - /tmp/${VM_TITLE}:/tmp/${VM_TITLE}:rw
     healthcheck:
