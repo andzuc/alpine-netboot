@@ -59,7 +59,7 @@ services:
       echo 'Creazione socket e ascolto avviato...' &&
       mkdir -p /tmp/${VM_TITLE} &&
       sleep 10 &&
-      socat -u UNIX-LISTEN:/tmp/${VM_TITLE}/serial0,mode=777,unlink-early=1 STDOUT"
+      exec socat -d -u UNIX-LISTEN:/tmp/${VM_TITLE}/serial0,mode=777,unlink-early=1,reuseaddr,fork STDOUT"
     healthcheck:
       test: ["CMD-SHELL", "test -S /tmp/${VM_TITLE}/serial0"]
       interval: 5s
