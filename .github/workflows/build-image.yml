@@ -22,9 +22,6 @@ env:
   PXE_MAC: '52:54:00:01:01:01'
   VM_TITLE: ${{ github.event.inputs.vm_title || vars.VM_TITLE }}
   GITHUB_CONTEXT: ${{ toJson(github) }}
-  REPO_NAME: ${{ github.event.repository.name }}
-  REPO_OWNER: ${{ github.repository_owner }}
-  INTNET: 172.21.1.0/24
   ANSIBLE_ARGS: '-t vars -t ping -t target'
 
 jobs:
@@ -64,10 +61,13 @@ jobs:
         shell: sudo -s -u runner source {0}
         run: |
           id
-          export INTNET="${{ env.INTNET }}"
+          export ALPINE_VERSION="${{ env.ALPINE_VERSION }}"
+          export ALPINE_ARCH="${{ env.ALPINE_ARCH }}"
+          export PXE_MAC="${{ env.PXE_MAC }}"
+          export VM_TITLE="${{ env.VM_TITLE }}"
           vagrant plugin install vagrant-libvirt
           touch build.log
-          screen -L -Logfile build.log -DmS build-image ./bin/provision &
+          screen -L -Logfile build.log -DmS build-image ./bin/up &
           BUILDPID=$!
           tail --pid=$BUILDPID -f build.log
           ./bin/down
