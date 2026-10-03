@@ -57,6 +57,10 @@ jobs:
           ip link ls
           echo "virsh net-list --all:"
           virsh net-list --all
+      - name: Fix QEMU emulator path for KVM
+        run: |
+          # Sostituisce l'emulatore i386 con x86_64 nei file di configurazione della VM
+          find . -name "*.xml" -type f -exec sed -i 's|/usr/bin/qemu-system-i386|/usr/bin/qemu-system-x86_64|g' {} +
       - name: Build image
         shell: sudo -s -u runner source {0}
         run: |
