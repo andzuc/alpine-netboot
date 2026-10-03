@@ -69,7 +69,8 @@ jobs:
           export ALPINE_ARCH="${{ env.ALPINE_ARCH }}"
           export PXE_MAC="${{ env.PXE_MAC }}"
           export VM_TITLE="${{ env.VM_TITLE }}"
-          vagrant plugin install vagrant-libvirt
+          export QEMU_AUDIO_DRV=none
+          export SDL_VIDEODRIVER=dummy
           touch build.log
           screen -L -Logfile build.log -DmS build-image ./bin/up &
           BUILDPID=$!
