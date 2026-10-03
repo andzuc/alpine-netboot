@@ -48,18 +48,14 @@ services:
         ipv4_address: *httpd_ip
     volumes:
       - alpine-netboot:/pxe:ro
-  vm-serial-forwarder:
-    image: alpine:3.20
-    container_name: vm-serial-forwarder
+  pxe-vm-logger:
+    build:
+      context: vm-logger
+      args:
+        - ALPINE_BASE_VERSION=3.20
+    container_name: pxe-vm-logger
     volumes:
       - /tmp/${VM_TITLE}:/tmp/${VM_TITLE}:rw
-    entrypoint: >
-      sh -c "
-      apk add --no-cache socat &&
-      echo 'Creazione socket e ascolto avviato...' &&
-      mkdir -p /tmp/${VM_TITLE} &&
-      sleep 10 &&
-      exec socat -d -u UNIX-LISTEN:/tmp/${VM_TITLE}/serial0,mode=777,unlink-early=1,reuseaddr,fork STDOUT"
     healthcheck:
       test: ["CMD-SHELL", "test -S /tmp/${VM_TITLE}/serial0"]
       interval: 5s
