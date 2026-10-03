@@ -20,6 +20,7 @@ env:
   ALPINE_VERSION: ${{ github.event.inputs.alpine_version || vars.ALPINE_VERSION }}
   ALPINE_ARCH: ${{ github.event.inputs.alpine_arch || vars.ALPINE_ARCH }}
   PXE_MAC: '52:54:00:01:01:01'
+  PXE_CONSOLE: 'ttyS0,115200'
   VM_TITLE: ${{ github.event.inputs.vm_title || vars.VM_TITLE }}
   GITHUB_CONTEXT: ${{ toJson(github) }}
   ANSIBLE_ARGS: '-t vars -t ping -t target'
@@ -57,13 +58,7 @@ jobs:
           sudo ip link set intnet up
           echo "ip link ls:"
           ip link ls
-          export LIBVIRT_DEFAULT_URI="qemu:///system"
-          echo "virsh net-list --all:"
-          #virsh net-list --all
-      # - name: Fix QEMU emulator path for KVM
-      #   run: |
-      #     # Sostituisce l'emulatore i386 con x86_64 nei file di configurazione della VM
-      #     sed -i 's|/usr/bin/qemu-system-i386|/usr/bin/qemu-system-x86_64|g' virt-n270/virt-n270.xml.template
+          ls -l /var/run/libvirt/libvirt-sock
       - name: Build image
         shell: sudo -s -u runner source {0}
         run: |
@@ -71,7 +66,11 @@ jobs:
           export ALPINE_VERSION="${{ env.ALPINE_VERSION }}"
           export ALPINE_ARCH="${{ env.ALPINE_ARCH }}"
           export PXE_MAC="${{ env.PXE_MAC }}"
+          export PXE_CONSOLE="${{ env.PXE_CONSOLE }}"
           export VM_TITLE="${{ env.VM_TITLE }}"
+          export LIBVIRT_DEFAULT_URI="qemu:///system"
+          echo "virsh net-list --all:"
+          virsh net-list --all
           touch build.log
           screen -L -Logfile build.log -DmS build-image ./bin/up &
           BUILDPID=$!
