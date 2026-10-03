@@ -59,7 +59,7 @@ jobs:
           ip link ls
           export LIBVIRT_DEFAULT_URI="qemu:///system"
           echo "virsh net-list --all:"
-          virsh net-list --all
+          #virsh net-list --all
       # - name: Fix QEMU emulator path for KVM
       #   run: |
       #     # Sostituisce l'emulatore i386 con x86_64 nei file di configurazione della VM
