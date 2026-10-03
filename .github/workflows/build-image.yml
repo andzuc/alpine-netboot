@@ -40,7 +40,8 @@ jobs:
           echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
           sudo apt-get update -y
           sudo apt-get install -y --no-install-recommends \
-           qemu-system-$(echo ${{ env.ALPINE_ARCH }}|sed 's/_/-/') libvirt-daemon-system ebtables libguestfs-tools \
+           qemu-system-$(echo ${{ env.ALPINE_ARCH }}|sed 's/_/-/') qemu-system-modules-spice \
+           libvirt-daemon-system ebtables libguestfs-tools \
            dnsmasq vagrant ruby-fog-libvirt virtinst qemu-utils libvirt-dev xmlstarlet
           sudo usermod -a -G libvirt,kvm "$USER"
           id libvirt-qemu
@@ -69,8 +70,6 @@ jobs:
           export ALPINE_ARCH="${{ env.ALPINE_ARCH }}"
           export PXE_MAC="${{ env.PXE_MAC }}"
           export VM_TITLE="${{ env.VM_TITLE }}"
-          export QEMU_AUDIO_DRV=none
-          export SDL_VIDEODRIVER=dummy
           touch build.log
           screen -L -Logfile build.log -DmS build-image ./bin/up &
           BUILDPID=$!
