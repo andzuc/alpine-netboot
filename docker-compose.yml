@@ -32,7 +32,7 @@ services:
       SERVER_IP: *dnsmasq_ip
       HTTPD_IP: *httpd_ip
       ALPINE_VERSION:
-      ARCH:
+      ALPINE_ARCH:
       PXE_MAC:
       PXE_IP: *pxe_ip
     volumes:

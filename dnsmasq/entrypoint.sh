@@ -14,7 +14,7 @@ if [ -z "${ROUTER_IP+x}" ]; then
     echo "ROUTER_IP is undefined"
     exit 1
 fi
-ARCH=${ARCH:-x86_64}
+ALPINE_ARCH=${ALPINE_ARCH:-x86_64}
 INTERFACE=$(ip addr show | awk -v ip="${SERVER_IP}" '$0 ~ "inet " ip "/" {print $NF}' | cut -d: -f1)
 if [ -z "${PXE_MAC+x}" ]; then
     echo "PXE_MAC is undefined"
@@ -30,7 +30,7 @@ echo "Alpine Version : ${ALPINE_VERSION}"
 echo "Router IP      : ${ROUTER_IP}"
 echo "Server IP      : ${SERVER_IP}"
 echo "Httpd IP       : ${HTTPD_IP}"
-echo "Architecture   : ${ARCH}"
+echo "Architecture   : ${ALPINE_ARCH}"
 echo "Interface      : ${INTERFACE}"
 echo "PXE MAC        : ${PXE_MAC}"
 echo "PXE IP         : ${PXE_IP}"
@@ -46,7 +46,7 @@ fi
 if [ ! -f /pxe/boot/vmlinuz-lts ]; then
     echo ">>> Download Alpine netboot..."
     mkdir -p /pxe/boot
-    NETBOOT_URL="https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/releases/${ARCH}/alpine-netboot-${ALPINE_VERSION}-${ARCH}.tar.gz"
+    NETBOOT_URL="https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/releases/${ALPINE_ARCH}/alpine-netboot-${ALPINE_VERSION}-${ALPINE_ARCH}.tar.gz"
     echo ">>> URL: ${NETBOOT_URL}"
     wget -q --show-progress -O /tmp/netboot.tar.gz "${NETBOOT_URL}"
     tar -xzf /tmp/netboot.tar.gz -C /pxe
