@@ -54,6 +54,8 @@ services:
       args:
         - ALPINE_BASE_VERSION=3.20
     container_name: pxe-vm-logger
+    environment:
+      VM_TITLE:
     volumes:
       - /tmp/${VM_TITLE}:/tmp/${VM_TITLE}:rw
     healthcheck:
