@@ -6,16 +6,21 @@ on:
       - '*'
   workflow_dispatch:
     inputs:
-      base_image:
-        description: 'Vagrant base image'
+      alpine_version:
+        description: 'Alpine version'
+        required: true
+      alpine_arch:
+        description: 'Alpine arch'
+        required: true
+      vm_title:
+        description: 'Title of the VM install target'
         required: true
 
 env:
-  BASE_IMAGE: ${{ github.event.inputs.base_image || vars.BASE_IMAGE }}
-  QEMU_ARCH: 'x86'
-  QEMU_MACH: 'q35'
-  QEMU_CPU: 'qemu64'
-  DEB_ARCH: 'amd64'
+  ALPINE_VERSION: ${{ github.event.inputs.alpine_version || vars.ALPINE_VERSION }}
+  ALPINE_ARCH: ${{ github.event.inputs.alpine_arch || vars.ALPINE_ARCH }}
+  PXE_MAC: '52:54:00:01:01:01'
+  VM_TITLE: ${{ github.event.inputs.vm_title || vars.VM_TITLE }}
   GITHUB_CONTEXT: ${{ toJson(github) }}
   REPO_NAME: ${{ github.event.repository.name }}
   REPO_OWNER: ${{ github.repository_owner }}
