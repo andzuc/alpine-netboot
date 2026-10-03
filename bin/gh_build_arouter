@@ -1,0 +1,8 @@
+#!/bin/bash
+BRANCH="${1:-master}"
+
+gh workflow run build-image \
+   -r "${BRANCH}" \
+   -f alpine_version=3.20.3 \
+   -f alpine_arch=x86 \
+   -f vm_title=virt-arouter
