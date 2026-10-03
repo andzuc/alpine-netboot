@@ -14,3 +14,5 @@ if [ "${INTERFACE-intnet}" = "intnet" ]; then
     cd virt-n270
     bin/up_virt
 fi
+
+docker compose logs -f
