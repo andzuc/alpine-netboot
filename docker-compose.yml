@@ -1,4 +1,4 @@
-x-router_ip: &router_ip ${ROUTER_IP:-192.168.101.110}
+x-router_ip: &router_ip ${ROUTER_IP:-192.168.101.254}
 x-dnsmasq_ip: &dnsmasq_ip ${DNSMASQ_IP:-192.168.101.110}
 x-httpd_ip: &httpd_ip ${HTTPD_IP:-192.168.101.111}
 x-ansible_ip: &ansible_ip ${ANSIBLE_IP:-192.168.101.112}
@@ -17,11 +17,17 @@ networks:
 
 services:
   pxe-router:
+    profiles:
+      - virt
     build:
       context: router
+      args:
+        - ALPINE_BASE_VERSION=3.20
     container_name: pxe-router
     cap_add:
       - NET_ADMIN
+    environment:
+      ROUTER_IP: *router_ip
     sysctls:
       - net.ipv4.ip_forward=1
     networks:

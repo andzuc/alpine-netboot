@@ -15,7 +15,7 @@ if [ -z "${ROUTER_IP+x}" ]; then
     exit 1
 fi
 ALPINE_ARCH=${ALPINE_ARCH:-x86_64}
-INTERFACE=$(ip addr show | awk -v ip="${SERVER_IP}" '$0 ~ "inet " ip "/" {print $NF}' | cut -d: -f1)
+IF_VNET=$(ip addr show | awk -v ip="${SERVER_IP}" '$0 ~ "inet " ip "/" {print $NF}' | cut -d: -f1)
 if [ -z "${PXE_MAC+x}" ]; then
     echo "PXE_MAC is undefined"
     exit 1
@@ -32,7 +32,7 @@ echo "Router IP      : ${ROUTER_IP}"
 echo "Server IP      : ${SERVER_IP}"
 echo "Httpd IP       : ${HTTPD_IP}"
 echo "Architecture   : ${ALPINE_ARCH}"
-echo "Interface      : ${INTERFACE}"
+echo "Interface VNET : ${IF_VNET}"
 echo "PXE MAC        : ${PXE_MAC}"
 echo "PXE IP         : ${PXE_IP}"
 echo "PXE CONSOLE    : ${PXE_CONSOLE}"
@@ -120,5 +120,5 @@ log-dhcp
 log-facility=-
 EOF
 
-echo ">>> Start dnsmasq on ${INTERFACE} (DHCP only for ${PXE_MAC})..."
+echo ">>> Start dnsmasq on ${IF_VNET} (DHCP only for ${PXE_MAC})..."
 exec dnsmasq --no-daemon -C /etc/dnsmasq.conf
