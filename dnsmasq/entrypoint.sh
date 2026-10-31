@@ -110,7 +110,7 @@ dhcp-match=set:ipxe,175
 
 # Gateway e DNS
 dhcp-option=tag:pxe,option:router,${ROUTER_IP}
-dhcp-option=tag:pxe,option:dns-server,${ROUTER_IP}
+dhcp-option=tag:pxe,option:dns-server,${SERVER_IP}
 
 # Boot file
 dhcp-boot=tag:pxe,tag:!ipxe,undionly.kpxe,,${SERVER_IP}

@@ -91,6 +91,7 @@ services:
       context: ansible
     container_name: pxe-ansible
     networks:
+      default:
       vnet:
         ipv4_address: *ansible_ip
 
