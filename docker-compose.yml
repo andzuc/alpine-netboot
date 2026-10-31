@@ -16,6 +16,18 @@ networks:
         - subnet: ${VNET:-192.168.101.0/24}
 
 services:
+  pxe-router:
+    build:
+      context: router
+    container_name: pxe-router
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.ipv4.ip_forward=1
+    networks:
+      default:
+      vnet:
+        ipv4_address: *router_ip
   pxe-dnsmasq:
     build:
       context: dnsmasq
