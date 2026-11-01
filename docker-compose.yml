@@ -57,6 +57,12 @@ services:
       PXE_CONSOLE: *pxe_console
     volumes:
       - alpine-netboot:/pxe
+    healthcheck:
+      test: ["CMD-SHELL", "pidof dnsmasq >/dev/null && test -f /pxe/undionly.kpxe && test -f /pxe/boot/vmlinuz-lts"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+      start_period: 120s
   pxe-httpd:
     build:
       context: httpd
@@ -71,6 +77,13 @@ services:
   pxe-vm-logger:
     profiles:
       - virt
+    depends_on:
+      pxe-dnsmasq:
+        condition: service_healthy
+      pxe-httpd:
+        condition: service_started
+      pxe-router:
+        condition: service_started
     build:
       context: vm-logger
       args:
