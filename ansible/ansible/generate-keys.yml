@@ -1,0 +1,27 @@
+---
+- name: Genera coppia di chiavi SSH per Alpine PXE
+  hosts: controller
+  gather_facts: false
+
+  vars:
+    key_path: "{{ playbook_dir }}/../keys/alpine-pxe"
+    key_comment: "alpine-pxe"
+
+  tasks:
+    - name: Crea directory keys
+      file:
+        path: "{{ playbook_dir }}/../keys"
+        state: directory
+        mode: "0700"
+
+    - name: Genera chiave ed25519 (se non esiste)
+      openssh_keypair:
+        path: "{{ key_path }}"
+        type: ed25519
+        comment: "{{ key_comment }}"
+        mode: "0600"
+      register: keygen
+
+    - name: Mostra fingerprint
+      debug:
+        msg: "Chiave generata: {{ keygen.fingerprint | default('già esistente') }}"

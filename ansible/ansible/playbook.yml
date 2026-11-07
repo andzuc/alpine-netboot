@@ -1,0 +1,128 @@
+---
+- name: "Ping: check all hosts"
+  tags: ping
+  hosts: all
+  tasks:
+    - name: "ping"
+      ansible.builtin.ping:
+- name: "Vars: show variables"
+  tags: vars
+  hosts: all
+  gather_facts: false
+  tasks:
+    - debug:
+        var: vars
+- name: "Agents: install QEMU and SPICE agents"
+  tags: agents
+  hosts: wine_hosts
+  become: true
+  tasks:
+    # TODO: make distro independent (https://serverfault.com/a/649355)
+    - name: "Ensures APT cache is up-to-date"
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 86400
+    - name: "Install QEMU and SPICE agents"
+      ansible.builtin.package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - qemu-guest-agent
+    - name: "Enable agents' services"
+      ansible.builtin.service:
+        name: '{{ item }}'
+        enabled: true
+        state: started
+      with_items:
+        - qemu-guest-agent
+- name: "X11: install X server"
+  tags: x11
+  hosts: wine_hosts
+  become: true
+  tasks:
+    # TODO: make distro independent (https://serverfault.com/a/649355)
+    - name: "x11: apt update"
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 86400
+    - name: "x11: install packages"
+      # TODO: astrazione a ruolo: https://gist.github.com/ryot4/0712f02f709be90bd5d6812b85e3b529
+      ansible.builtin.package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - xserver-xorg-video-qxl
+        - xserver-xorg-input-evdev
+        - x11-xserver-utils
+        - x11-xkb-utils
+        - x11-utils
+        - xinit
+        - xterm
+        - spice-vdagent
+        - mesa-utils
+- name: "glmark2: install glmark2"
+  tags: glmark2
+  hosts: wine_hosts
+  become: true
+  tasks:
+    - name: "Get info about the latest release of andzuc/debian-glmark2"
+      ansible.builtin.uri:
+        url: "https://api.github.com/repos/andzuc/debian-glmark2/releases/latest"
+        return_content: yes
+      delegate_to: controller
+      register: release_info
+    - name: "Debug release info"
+      ansible.builtin.debug:
+        var: release_info.json
+      when: release_info.json is defined
+    - name: "Download the latest release asset"
+      ansible.builtin.get_url:
+        url: "{{ release_info.json.assets | selectattr('name', 'match', '.*\\.tar\\.gz') | map(attribute='browser_download_url') | first }}"
+        dest: "/tmp/debian-glmark2-latest.tar.gz"
+        mode: "0644"
+      when: release_info.json.assets | length > 0
+    - name: "Ensure temporary extraction directory exists"
+      ansible.builtin.file:
+        path: "/tmp/glmark2_extract"
+        state: directory
+        mode: "0755"
+        owner: root
+        group: root
+      when: release_info.json.assets | length > 0
+    - name: "Extract the downloaded asset to temporary directory"
+      ansible.builtin.unarchive:
+        src: "/tmp/debian-glmark2-latest.tar.gz"
+        dest: "/tmp/glmark2_extract"
+        remote_src: yes
+        mode: "0755"
+        owner: root
+        group: root
+      when: release_info.json.assets | length > 0
+    - name: "Move glmark2 executable to desired location"
+      ansible.builtin.copy:
+        src: "/tmp/glmark2_extract/glmark2"
+        dest: "/opt"
+        mode: "0755"
+        owner: root
+        group: root
+        remote_src: yes
+      when: release_info.json.assets | length > 0
+    - name: "Clean up temporary extraction directory"
+      ansible.builtin.file:
+        path: "/tmp/glmark2_extract"
+        state: absent
+      when: release_info.json.assets | length > 0
+- name: "Wine: install wine"
+  tags: wine
+  hosts: wine_hosts
+  roles:
+    - name: ansible-role-wine
+- name: "Wine: setup demo"
+  # Installs: numb res by Carillon & Cyberiad (https://www.pouet.net/prod.php?which=56900)
+  tags: demo
+  hosts: wine_hosts
+  tasks:
+    - name: "wine: download demo"
+      ansible.builtin.get_url:
+        url: https://files.scene.org/get/parties/2011/thegathering11/demo/cncdflt_numb_res.zip
+        dest: /tmp
