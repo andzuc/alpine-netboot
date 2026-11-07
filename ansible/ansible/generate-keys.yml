@@ -5,7 +5,7 @@
 
   tasks:
     - name: Crea directory keys
-      file:
+      ansible.builtin.file:
         path: "{{ key_dir }}"
         state: directory
         mode: "0700"
@@ -19,5 +19,12 @@
       register: keygen
 
     - name: Mostra fingerprint
-      debug:
+      ansible.builtin.debug:
         msg: "Chiave generata: {{ keygen.fingerprint | default('già esistente') }}"
+
+    - name: Copia chiave pubblica sul server PXE (HTTP root)
+      ansible.builtin.copy:
+        src: "{{ key_target_path }}.pub"
+        dest: "{{ pxe_volume }}/{{ target_hostname }}.pub"
+        mode: "0644"
+      become: true

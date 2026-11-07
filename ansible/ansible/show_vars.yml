@@ -1,0 +1,7 @@
+---
+- name: "Show vars"
+  hosts: all
+  gather_facts: false
+  tasks:
+    - debug:
+        var: vars

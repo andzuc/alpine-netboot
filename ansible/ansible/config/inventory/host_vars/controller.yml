@@ -1,0 +1,1 @@
+pxe_volume: "{{ lookup('ansible.builtin.env', 'PXE_VOLUME') }}"

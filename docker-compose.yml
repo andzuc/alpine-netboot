@@ -106,6 +106,9 @@ services:
     environment:
       PXE_IP: *pxe_ip
       PXE_HOSTNAME: ${VM_TITLE}
+      PXE_VOLUME: "/pxe"
+    volumes:
+      - alpine-netboot:/pxe
     networks:
       default:
       vnet:

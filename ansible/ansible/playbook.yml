@@ -1,10 +1,4 @@
 ---
-- name: "Show vars"
-  hosts: all
-  gather_facts: false
-  tasks:
-    - debug:
-        var: vars
 - name: "Wait for {{ target_hostname }} SSH connection"
   hosts: target
   gather_facts: false

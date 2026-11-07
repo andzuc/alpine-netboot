@@ -1,6 +1,6 @@
-#!/bin/bash
-PYTHONUNBUFFERED=1
-ANSIBLE_FORCE_COLOR=true
+#!/bin/sh
+export PYTHONUNBUFFERED=1
+export ANSIBLE_FORCE_COLOR=true
 
 echo "python virtual environment: ${VIRTUAL_ENV}"
 echo "pip path: $(which pip)"
@@ -8,9 +8,9 @@ echo "python path: $(which python)"
 echo "ansible-galaxy: $(which ansible-galaxy)"
 echo "ansible-playbook: $(which ansible-playbook)"
 
-ansible-galaxy collection install community.general community.crypto
 ansible-playbook \
     -e "target_ip=${PXE_IP}" \
     -e "target_hostname=${PXE_HOSTNAME}" \
+    show_vars.yml \
     generate-keys.yml \
     playbook.yml

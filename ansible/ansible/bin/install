@@ -1,0 +1,16 @@
+#!/bin/sh
+
+. ansible-ee/bin/activate
+cd ansible
+
+export ANSIBLE_CONFIG=config/ansible.cfg
+export PYTHONUNBUFFERED=1
+export ANSIBLE_FORCE_COLOR=true
+
+echo "python virtual environment: ${VIRTUAL_ENV}"
+echo "pip path: $(which pip)"
+echo "python path: $(which python)"
+echo "ansible-galaxy: $(which ansible-galaxy)"
+echo "ansible-playbook: $(which ansible-playbook)"
+
+ansible-galaxy collection install community.general community.crypto
