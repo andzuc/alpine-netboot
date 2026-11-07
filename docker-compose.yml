@@ -105,6 +105,7 @@ services:
     container_name: pxe-ansible
     environment:
       PXE_IP: *pxe_ip
+      PXE_HOSTNAME: ${VM_TITLE}
     networks:
       default:
       vnet:

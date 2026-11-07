@@ -1,12 +1,18 @@
 ---
-- name: "Vars: show variables"
+- name: "Show vars"
   hosts: all
   gather_facts: false
   tasks:
     - debug:
         var: vars
+- name: "Wait for {{ target_hostname }} SSH connection"
+  hosts: target
+  gather_facts: false
+  tasks:
+    - ansible.builtin.wait_for_connection:
+        timeout: 600
+    - ansible.builtin.setup:
 - name: "Ping: check all hosts"
   hosts: all
   tasks:
-    - name: "ping"
-      ansible.builtin.ping:
+    - ansible.builtin.ping:

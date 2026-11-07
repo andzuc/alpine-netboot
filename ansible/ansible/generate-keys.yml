@@ -3,11 +3,6 @@
   hosts: controller
   gather_facts: false
 
-  vars:
-    key_dir: "{{ inventory_dir }}/keys"
-    key_path: "{{ key_dir }}/alpine-pxe"
-    key_comment: "alpine-pxe"
-
   tasks:
     - name: Crea directory keys
       file:
@@ -17,9 +12,9 @@
 
     - name: Genera chiave ed25519 (se non esiste)
       community.crypto.openssh_keypair:
-        path: "{{ key_path }}"
+        path: "{{ key_target_path }}"
         type: ed25519
-        comment: "{{ key_comment }}"
+        comment: "{{ key_target_comment }}"
         mode: "0600"
       register: keygen
 

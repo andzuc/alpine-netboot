@@ -11,5 +11,6 @@ echo "ansible-playbook: $(which ansible-playbook)"
 ansible-galaxy collection install community.general community.crypto
 ansible-playbook \
     -e "target_ip=${PXE_IP}" \
+    -e "target_hostname=${PXE_HOSTNAME}" \
     generate-keys.yml \
     playbook.yml

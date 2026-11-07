@@ -1,0 +1,3 @@
+key_dir: "{{ inventory_dir }}/keys"
+key_target_path: "{{ key_dir }}/{{ target_hostname }}"
+key_target_comment: "{{ target_hostname }}"
