@@ -2,11 +2,31 @@
 - name: "Wait for {{ target_hostname }} SSH connection"
   hosts: target
   gather_facts: false
+  become: false
+  tasks:
+    - name: "Wait for SSH port"
+      ansible.builtin.wait_for:
+        host: "{{ ansible_host }}"
+        port: 22
+        timeout: 300
+        delay: 10
+        sleep: 10
+        state: started
+      delegate_to: controller
+    - name: "Installs Python (via raw)"
+      ansible.builtin.raw: |
+        if ! command -v python3 >/dev/null 2>&1; then
+          apk update
+          apk add --no-cache python3
+        fi
+      register: bootstrap
+      changed_when: "'Installing' in bootstrap.stdout or 'OK:' in bootstrap.stdout"
+    - name: "Wait a bit"
+      ansible.builtin.pause:
+        seconds: 2
+- name: "Wait for {{ target_hostname }} SSH connection"
+  hosts: target
   tasks:
     - ansible.builtin.wait_for_connection:
-        timeout: 600
+        timeout: 60
     - ansible.builtin.setup:
-- name: "Ping: check all hosts"
-  hosts: all
-  tasks:
-    - ansible.builtin.ping:
