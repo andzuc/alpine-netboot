@@ -103,6 +103,8 @@ services:
     build:
       context: ansible
     container_name: pxe-ansible
+    environment:
+      PXE_IP: *pxe_ip
     networks:
       default:
       vnet:
