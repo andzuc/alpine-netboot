@@ -3,5 +3,5 @@
   hosts: all
   gather_facts: false
   tasks:
-    - debug:
-        var: vars
+    - ansible.builtin.debug:
+        var: hostvars[inventory_hostname]
