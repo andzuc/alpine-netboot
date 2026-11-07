@@ -81,7 +81,8 @@ kernel \${base}/vmlinuz-lts \\
     loglevel=8 \\
     modules=loop,squashfs nomodeset \\
     alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \\
-    modloop=\${base}/modloop-lts || goto failed
+    modloop=\${base}/modloop-lts \\
+    ssh_key=http://${HTTPD_IP}/virt-arouter.pub || goto failed
 
 initrd \${base}/initramfs-lts || goto failed
 boot || goto failed

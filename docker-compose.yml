@@ -16,25 +16,30 @@ networks:
         - subnet: ${VNET:-192.168.101.0/24}
 
 services:
-  pxe-router:
-    profiles:
-      - virt
+  pxe-ansible:
     build:
-      context: router
-      args:
-        - ALPINE_BASE_VERSION=3.20
-    container_name: pxe-router
-    cap_add:
-      - NET_ADMIN
+      context: ansible
+    container_name: pxe-ansible
     environment:
-      ROUTER_IP: *router_ip
-    sysctls:
-      - net.ipv4.ip_forward=1
+      PXE_IP: *pxe_ip
+      PXE_HOSTNAME: ${VM_TITLE}
+      PXE_VOLUME: "/pxe"
+    volumes:
+      - alpine-netboot:/pxe
     networks:
       default:
       vnet:
-        ipv4_address: *router_ip
+        ipv4_address: *ansible_ip
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /pxe/${VM_TITLE}.pub"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
   pxe-dnsmasq:
+    depends_on:
+      pxe-ansible:
+        condition: service_healthy
     build:
       context: dnsmasq
       args:
@@ -74,6 +79,24 @@ services:
         ipv4_address: *httpd_ip
     volumes:
       - alpine-netboot:/pxe:ro
+  pxe-router:
+    profiles:
+      - virt
+    build:
+      context: router
+      args:
+        - ALPINE_BASE_VERSION=3.20
+    container_name: pxe-router
+    cap_add:
+      - NET_ADMIN
+    environment:
+      ROUTER_IP: *router_ip
+    sysctls:
+      - net.ipv4.ip_forward=1
+    networks:
+      default:
+      vnet:
+        ipv4_address: *router_ip
   pxe-vm-logger:
     profiles:
       - virt
@@ -99,20 +122,6 @@ services:
       timeout: 3s
       retries: 10
       start_period: 2s
-  pxe-ansible:
-    build:
-      context: ansible
-    container_name: pxe-ansible
-    environment:
-      PXE_IP: *pxe_ip
-      PXE_HOSTNAME: ${VM_TITLE}
-      PXE_VOLUME: "/pxe"
-    volumes:
-      - alpine-netboot:/pxe
-    networks:
-      default:
-      vnet:
-        ipv4_address: *ansible_ip
 
 volumes:
   alpine-netboot:
