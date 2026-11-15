@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . ansible-ee/bin/activate
-cd ansible
+cd /ansible
 
 export ANSIBLE_CONFIG=config/ansible.cfg
 export PYTHONUNBUFFERED=1

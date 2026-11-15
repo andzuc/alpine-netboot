@@ -5,6 +5,8 @@ x-ansible_ip: &ansible_ip ${ANSIBLE_IP:-192.168.101.112}
 x-pxe_ip: &pxe_ip ${PXE_IP:-192.168.101.160}
 x-pxe_console: &pxe_console ${PXE_CONSOLE:-tty0}
 
+name: alpine
+
 networks:
   vnet:
     name: vnet
@@ -25,7 +27,8 @@ services:
       PXE_HOSTNAME: ${VM_TITLE}
       PXE_VOLUME: "/pxe"
     volumes:
-      - alpine-netboot:/pxe
+      - ansible-data:/ansible
+      - netboot-data:/pxe
     networks:
       default:
       vnet:
@@ -61,10 +64,10 @@ services:
       PXE_IP: *pxe_ip
       PXE_CONSOLE: *pxe_console
     volumes:
-      - alpine-netboot:/pxe
+      - netboot-data:/pxe
     healthcheck:
       test: ["CMD-SHELL", "pidof dnsmasq >/dev/null && test -f /pxe/undionly.kpxe && test -f /pxe/boot/vmlinuz-lts"]
-      interval: 5s
+      interval: 10s
       timeout: 3s
       retries: 24
       start_period: 120s
@@ -78,7 +81,7 @@ services:
       vnet:
         ipv4_address: *httpd_ip
     volumes:
-      - alpine-netboot:/pxe:ro
+      - netboot-data:/pxe:ro
   pxe-router:
     profiles:
       - virt
@@ -124,4 +127,5 @@ services:
       start_period: 2s
 
 volumes:
-  alpine-netboot:
+  ansible-data:
+  netboot-data:
