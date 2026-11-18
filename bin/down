@@ -5,12 +5,10 @@ cd "${MYDIR}/.."
 [ -f .env ]&&source .env
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
-    export VM_NAME="${VM_TITLE}"
+    export VM_NAME="${PXE_HOSTNAME}"
     cd virt-n270
     bin/down_virt
     PROFILE="virt"
-else
-    export VM_TITLE="novm"
 fi
 
 docker compose --profile "${PROFILE}" down

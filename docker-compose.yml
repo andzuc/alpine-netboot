@@ -24,7 +24,7 @@ services:
     container_name: pxe-ansible
     environment:
       PXE_IP: *pxe_ip
-      PXE_HOSTNAME: ${VM_TITLE}
+      PXE_HOSTNAME: ${PXE_HOSTNAME}
       PXE_VOLUME: "/pxe"
     volumes:
       - ansible-data:/ansible
@@ -34,7 +34,7 @@ services:
       vnet:
         ipv4_address: *ansible_ip
     healthcheck:
-      test: ["CMD-SHELL", "test -f /pxe/${VM_TITLE}.pub"]
+      test: ["CMD-SHELL", "test -f /pxe/${PXE_HOSTNAME}.pub"]
       interval: 5s
       timeout: 3s
       retries: 10
@@ -116,11 +116,11 @@ services:
         - ALPINE_BASE_VERSION=3.20
     container_name: pxe-vm-logger
     environment:
-      VM_TITLE: ${VM_TITLE}
+      VM_TITLE: ${PXE_HOSTNAME}
     volumes:
-      - /tmp/${VM_TITLE}:/tmp/${VM_TITLE}:rw
+      - /tmp/${PXE_HOSTNAME}:/tmp/${PXE_HOSTNAME}:rw
     healthcheck:
-      test: ["CMD-SHELL", "test -S /tmp/${VM_TITLE}/serial0"]
+      test: ["CMD-SHELL", "test -S /tmp/${PXE_HOSTNAME}/serial0"]
       interval: 5s
       timeout: 3s
       retries: 10

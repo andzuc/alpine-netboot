@@ -7,15 +7,13 @@ set -e
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
     PROFILE="virt"
-else
-    export VM_TITLE="novm"
 fi
 
 docker compose --profile "${PROFILE}" --progress plain build
 docker compose --profile "${PROFILE}" up --wait
 
 if [ "${INTERFACE-intnet}" = "intnet" ]; then
-    export VM_NAME="${VM_TITLE}"
+    export VM_NAME="${PXE_HOSTNAME}"
     export VM_MAC="${PXE_MAC}"
     cd virt-n270
     bin/up_virt
