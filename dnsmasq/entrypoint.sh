@@ -25,6 +25,10 @@ if [ -z "${PXE_IP+x}" ]; then
     exit 1
 fi
 PXE_CONSOLE=${PXE_CONSOLE:-tty0}
+if [ -z "${PXE_HOSTNAME+x}" ]; then
+    echo "PXE_HOSTNAME is undefined"
+    exit 1
+fi
 
 echo "=== PXE Server Alpine ==="
 echo "Alpine Version : ${ALPINE_VERSION}"
@@ -36,12 +40,12 @@ echo "Interface VNET : ${IF_VNET}"
 echo "PXE MAC        : ${PXE_MAC}"
 echo "PXE IP         : ${PXE_IP}"
 echo "PXE CONSOLE    : ${PXE_CONSOLE}"
+echo "PXE HOSTNAME   : ${PXE_HOSTNAME}"
 
 # chainload iPXE: https://ipxe.org/howto/chainloading
 if [ ! -f /pxe/undionly.kpxe ]; then
-    echo ">>> Download undionly.kpxe..."
-    wget -P /pxe https://boot.ipxe.org/undionly.kpxe
-    echo ">>> Download complete"
+    echo "/pxe/undionly.kpxe missing"
+    exit 1
 fi
 
 # Scarica Alpine netboot solo se non presente
@@ -82,7 +86,7 @@ kernel \${base}/vmlinuz-lts \\
     modules=loop,squashfs nomodeset \\
     alpine_repo=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION%.*}/main \\
     modloop=\${base}/modloop-lts \\
-    ssh_key=http://${HTTPD_IP}/virt-arouter.pub || goto failed
+    ssh_key=http://${HTTPD_IP}/${PXE_HOSTNAME}.pub || goto failed
 
 initrd \${base}/initramfs-lts || goto failed
 boot || goto failed

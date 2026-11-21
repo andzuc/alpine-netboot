@@ -13,4 +13,4 @@ ansible-playbook \
     -e "target_hostname=${PXE_HOSTNAME}" \
     show_vars.yml \
     generate-keys.yml \
-    playbook.yml
+    python-install.yml

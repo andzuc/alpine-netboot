@@ -1,0 +1,868 @@
+
+^bus^vendor_id^device_id^vendor_name^device_name^ipxe_driver^ipxe_name^ipxe_description^file^legacy_api^
+|pci|0001|8168|||realtek|clone8169|Cloned 8169|drivers/net/realtek.c|no|
+|pci|018a|0106|||realtek|fpc0106tx|LevelOne FPC-0106TX|drivers/net/realtek.c|no|
+|pci|021b|8139|||realtek|hne300|Compaq HNE-300|drivers/net/realtek.c|no|
+|pci|02ac|1012|||realtek|s1012|SpeedStream 1012|drivers/net/realtek.c|no|
+|pci|0357|000a|||realtek|ttpmon|TTTech TTP-Monitoring|drivers/net/realtek.c|no|
+|pci|0e11|ae32|||tlan|netel100|Compaq Netelligent 10/100 TX PCI UTP|drivers/net/tlan.c|yes|
+|pci|0e11|ae34|||tlan|netel10|Compaq Netelligent 10 T PCI UTP|drivers/net/tlan.c|yes|
+|pci|0e11|ae35|||tlan|netflex3i|Compaq Integrated NetFlex-3/P|drivers/net/tlan.c|yes|
+|pci|0e11|ae40|||tlan|netel100d|Compaq Netelligent Dual 10/100 TX PCI UTP|drivers/net/tlan.c|yes|
+|pci|0e11|ae43|||tlan|netel100pi|Compaq Netelligent Integrated 10/100 TX UTP|drivers/net/tlan.c|yes|
+|pci|0e11|b011|||tlan|netel100i|Compaq Netelligent 10/100 TX Embedded UTP|drivers/net/tlan.c|yes|
+|pci|0e11|b012|||tlan|netelligent_10_t2|Compaq Netelligent 10 T/2 PCI UTP/Coax|drivers/net/tlan.c|yes|
+|pci|0e11|b030|||tlan|netelligent_10_100_ws_5100|Compaq Netelligent 10/100 TX UTP|drivers/net/tlan.c|yes|
+|pci|0e11|f130|||tlan|thunder|Compaq NetFlex-3/P|drivers/net/tlan.c|yes|
+|pci|0e11|f150|||tlan|netflex3b|Compaq NetFlex-3/P|drivers/net/tlan.c|yes|
+|pci|100b|0020|||natsemi|dp83815|DP83815|drivers/net/natsemi.c|no|
+|pci|100b|0022|||natsemi|dp83820|DP83820|drivers/net/natsemi.c|no|
+|pci|1011|0002|||tulip|dc21040|Digital Tulip|drivers/net/tulip.c|yes|
+|pci|1011|0009|||tulip|ds21140|Digital Tulip Fast|drivers/net/tulip.c|yes|
+|pci|1011|0014|||tulip|dc21041|Digital Tulip+|drivers/net/tulip.c|yes|
+|pci|1011|0019|||tulip|ds21142|Digital Tulip 21142|drivers/net/tulip.c|yes|
+|pci|1022|2000|||pcnet32|pcnet32|AMD PCnet/PCI|drivers/net/pcnet32.c|no|
+|pci|1022|2001|||pcnet32|amdhomepna|AMD PCnet/HomePNA|drivers/net/pcnet32.c|no|
+|pci|1022|2625|||pcnet32|pcnetfastiii|AMD PCNet FAST III|drivers/net/pcnet32.c|no|
+|pci|1022|7462|||amd8111e|amd8111e|AMD8111E|drivers/net/amd8111e.c|yes|
+|pci|1039|0190|||sis190|sis190|sis190|drivers/net/sis190.c|no|
+|pci|1039|0191|||sis190|sis191|sis191|drivers/net/sis190.c|no|
+|pci|1039|0900|||sis900|sis900|SIS900|drivers/net/sis900.c|yes|
+|pci|1039|7016|||sis900|sis7016|SIS7016|drivers/net/sis900.c|yes|
+|pci|104a|0981|||tulip|tulip-0981|Tulip 0x104a 0x0981|drivers/net/tulip.c|yes|
+|pci|104a|2774|||tulip|SGThomson-STE10100A|Tulip 0x104a 0x2774|drivers/net/tulip.c|yes|
+|pci|1050|0840|||w89c840|winbond840|Winbond W89C840F|drivers/net/w89c840.c|yes|
+|pci|1050|0940|||ns8390|winbond940|Winbond NE2000-PCI|drivers/net/ns8390.c|yes|
+|pci|1050|5a5a|||ns8390|winbond940f|Winbond W89c940F|drivers/net/ns8390.c|yes|
+|pci|106b|1645|||tg3|106b-1645|106b-1645|drivers/net/tg3/tg3.c|no|
+|pci|1077|7220|||linda|iba7220|QLE7240/7280 HCA driver|drivers/infiniband/linda.c|no|
+|pci|1077|7322|||qib7322|iba7322|IBA7322 QDR InfiniBand HCA|drivers/infiniband/qib7322.c|no|
+|pci|108d|0012|||tlan|oc2325|Olicom OC-2325|drivers/net/tlan.c|yes|
+|pci|108d|0013|||tlan|oc2183|Olicom OC-2183/2185|drivers/net/tlan.c|yes|
+|pci|108d|0014|||tlan|oc2326|Olicom OC-2326|drivers/net/tlan.c|yes|
+|pci|10b7|0013|||ath5k|rdag675|3com 3CRDAG675|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|10b7|1201|||3c90x|3c982a|3Com982A|drivers/net/3c90x.c|no|
+|pci|10b7|1202|||3c90x|3c982b|3Com982B|drivers/net/3c90x.c|no|
+|pci|10b7|1700|||skge|3C940|3COM 3C940|drivers/net/skge.c|no|
+|pci|10b7|4500|||3c595|3c450-1|3Com450 HomePNA Tornado|drivers/net/3c595.c|yes|
+|pci|10b7|4500|||3c90x|3c450|3Com450 HomePNA Tornado|drivers/net/3c90x.c|no|
+|pci|10b7|5900|||3c595|3c590|3Com590|drivers/net/3c595.c|yes|
+|pci|10b7|5950|||3c595|3c595|3Com595|drivers/net/3c595.c|yes|
+|pci|10b7|5951|||3c595|3c595-1|3Com595|drivers/net/3c595.c|yes|
+|pci|10b7|5952|||3c595|3c595-2|3Com595|drivers/net/3c595.c|yes|
+|pci|10b7|6055|||3c90x|3c556|3C556|drivers/net/3c90x.c|no|
+|pci|10b7|7646|||3c595|3csoho100-tx-1|3CSOHO100-TX|drivers/net/3c595.c|yes|
+|pci|10b7|7646|||3c90x|3csoho100-tx|3CSOHO100-TX|drivers/net/3c90x.c|no|
+|pci|10b7|7770|||prism2_plx|3c-airconnect|3Com AirConnect|drivers/net/prism2_plx.c|yes|
+|pci|10b7|80eb|||skge|3C940B|3COM 3C940|drivers/net/skge.c|no|
+|pci|10b7|9000|||3c595|3c900-tpo|3Com900-TPO|drivers/net/3c595.c|yes|
+|pci|10b7|9000|||3c90x|3c905-tpo|3Com900-TPO|drivers/net/3c90x.c|no|
+|pci|10b7|9001|||3c595|3c900-t4|3Com900-Combo|drivers/net/3c595.c|yes|
+|pci|10b7|9001|||3c90x|3c905-t4|3Com900-Combo|drivers/net/3c90x.c|no|
+|pci|10b7|9004|||3c595|3c900b-tpo|3Com900B-TPO|drivers/net/3c595.c|yes|
+|pci|10b7|9004|||3c90x|3c905b-tpo|3Com900B-TPO|drivers/net/3c90x.c|no|
+|pci|10b7|9005|||3c595|3c900b-combo|3Com900B-Combo|drivers/net/3c595.c|yes|
+|pci|10b7|9005|||3c90x|3c905b-combo|3Com900B-Combo|drivers/net/3c90x.c|no|
+|pci|10b7|9006|||3c595|3c900b-tpb2|3Com900B-2/T|drivers/net/3c595.c|yes|
+|pci|10b7|9006|||3c90x|3c905b-tpb2|3Com900B-2/T|drivers/net/3c90x.c|no|
+|pci|10b7|900a|||3c595|3c900b-fl|3Com900B-FL|drivers/net/3c595.c|yes|
+|pci|10b7|900a|||3c90x|3c905b-fl|3Com900B-FL|drivers/net/3c90x.c|no|
+|pci|10b7|9050|||3c90x|3c905-tpo100|3Com905-TX|drivers/net/3c90x.c|no|
+|pci|10b7|9051|||3c90x|3c905-combo|3Com905-T4|drivers/net/3c90x.c|no|
+|pci|10b7|9055|||3c90x|3c905b-tpo100|3Com905B-TX|drivers/net/3c90x.c|no|
+|pci|10b7|9056|||3c90x|3c905b-t4|3Com905B-T4|drivers/net/3c90x.c|no|
+|pci|10b7|9058|||3c90x|3c905b-9058|3Com905B-9058|drivers/net/3c90x.c|no|
+|pci|10b7|905a|||3c90x|3c905b-fx|3Com905B-FL|drivers/net/3c90x.c|no|
+|pci|10b7|9200|||3c90x|3c905c-tpo|3Com905C-TXM|drivers/net/3c90x.c|no|
+|pci|10b7|9202|||3c90x|3c920b-emb-ati|3c920B-EMB-WNM (ATI Radeon 9100 IGP)|drivers/net/3c90x.c|no|
+|pci|10b7|9210|||3c90x|3c920b-emb-wnm|3Com20B-EMB WNM|drivers/net/3c90x.c|no|
+|pci|10b7|9300|||tulip|3csoho100b-tx|3ComSOHO100B-TX|drivers/net/tulip.c|yes|
+|pci|10b7|9800|||3c595|3c980-cyclone-1|3Com980-Cyclone|drivers/net/3c595.c|yes|
+|pci|10b7|9800|||3c90x|3c980|3Com980-Cyclone|drivers/net/3c90x.c|no|
+|pci|10b7|9805|||3c595|3c9805-1|3Com9805|drivers/net/3c595.c|yes|
+|pci|10b7|9805|||3c90x|3c9805|3Com9805|drivers/net/3c90x.c|no|
+|pci|10b8|0005|||epic100|epic100|SMC EtherPowerII|drivers/net/epic100.c|yes|
+|pci|10b8|0006|||epic100|smc-83c175|SMC EPIC/C 83c175|drivers/net/epic100.c|yes|
+|pci|10b9|5261|||tulip|ali1563|ALi 1563 integrated ethernet|drivers/net/tulip.c|yes|
+|pci|10bd|0e34|||ns8390|surecom-ne34|Surecom NE34|drivers/net/ns8390.c|yes|
+|pci|10d9|0512|||tulip|mx98713|Macronix MX987x3|drivers/net/tulip.c|yes|
+|pci|10d9|0531|||tulip|mx98715|Macronix MX987x5|drivers/net/tulip.c|yes|
+|pci|10de|0037|||forcedeth|MCP04|MCP04 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0038|||forcedeth|MCP04|MCP04 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0056|||forcedeth|CK804|CK804 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0057|||forcedeth|CK804|CK804 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0066|||forcedeth|nForce2|nForce2 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0086|||forcedeth|nForce3|nForce3 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|008c|||forcedeth|nForce3|nForce3 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|00d6|||forcedeth|nForce3|nForce3 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|00df|||forcedeth|nForce3|nForce3 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|00e6|||forcedeth|nForce3|nForce3 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|01c3|||forcedeth|nForce|nForce Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0268|||forcedeth|MCP51|MCP51 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0269|||forcedeth|MCP51|MCP51 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0372|||forcedeth|MCP55|MCP55 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0373|||forcedeth|MCP55|MCP55 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|03e5|||forcedeth|MCP61|MCP61 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|03e6|||forcedeth|MCP61|MCP61 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|03ee|||forcedeth|MCP61|MCP61 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|03ef|||forcedeth|MCP61|MCP61 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0450|||forcedeth|MCP65|MCP65 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0451|||forcedeth|MCP65|MCP65 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0452|||forcedeth|MCP65|MCP65 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0453|||forcedeth|MCP65|MCP65 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|054c|||forcedeth|MCP67|MCP67 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|054d|||forcedeth|MCP67|MCP67 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|054e|||forcedeth|MCP67|MCP67 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|054f|||forcedeth|MCP67|MCP67 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0760|||forcedeth|MCP77|MCP77 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0761|||forcedeth|MCP77|MCP77 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0762|||forcedeth|MCP77|MCP77 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0763|||forcedeth|MCP77|MCP77 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|07dc|||forcedeth|MCP73|MCP73 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|07dd|||forcedeth|MCP73|MCP73 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|07de|||forcedeth|MCP73|MCP73 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|07df|||forcedeth|MCP73|MCP73 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0ab0|||forcedeth|MCP79|MCP79 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0ab1|||forcedeth|MCP79|MCP79 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0ab2|||forcedeth|MCP79|MCP79 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0ab3|||forcedeth|MCP79|MCP79 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10de|0d7d|||forcedeth|MCP89|MCP89 Ethernet Controller|drivers/net/forcedeth.c|no|
+|pci|10ec|8029|||ns8390|rtl8029|Realtek 8029|drivers/net/ns8390.c|yes|
+|pci|10ec|8129|||realtek|rtl8129|RTL-8129|drivers/net/realtek.c|no|
+|pci|10ec|8136|||realtek|rtl8136|RTL8101E/RTL8102E|drivers/net/realtek.c|no|
+|pci|10ec|8138|||realtek|rtl8138|RT8139 (B/C)|drivers/net/realtek.c|no|
+|pci|10ec|8139|||realtek|rtl8139|RTL-8139/8139C/8139C+|drivers/net/realtek.c|no|
+|pci|10ec|8167|||realtek|rtl8167|RTL-8110SC/8169SC|drivers/net/realtek.c|no|
+|pci|10ec|8168|||realtek|rtl8168|RTL8111/8168B|drivers/net/realtek.c|no|
+|pci|10ec|8169|||realtek|rtl8169|RTL-8169|drivers/net/realtek.c|no|
+|pci|10ec|8180|||rtl8180|rtl8180|Realtek 8180|drivers/net/rtl818x/rtl8180.c|no|
+|pci|10ec|8185|||rtl8185|rtl8185|Realtek 8185|drivers/net/rtl818x/rtl8185.c|no|
+|pci|10ee|2b00|||exanic|exanic-old|ExaNIC (old)|drivers/net/exanic.c|no|
+|pci|1106|0926|||ns8390|via86c926|Via 86c926|drivers/net/ns8390.c|yes|
+|pci|1106|3043|||rhine|dlink-530tx-old|VIA VT3043|drivers/net/rhine.c|no|
+|pci|1106|3053|||rhine|vt6105m|VIA VT6105M|drivers/net/rhine.c|no|
+|pci|1106|3065|||rhine|dlink-530tx|VIA VT6102|drivers/net/rhine.c|no|
+|pci|1106|3106|||rhine|vt6105|VIA VT6105|drivers/net/rhine.c|no|
+|pci|1106|3119|||velocity|vt6122|VIA Velocity|drivers/net/velocity.c|no|
+|pci|1106|6100|||rhine|via-rhine-old|VIA 86C100A|drivers/net/rhine.c|no|
+|pci|1113|1211|||realtek|smc1211|SMC2-1211TX|drivers/net/realtek.c|no|
+|pci|1113|1216|||tulip|an983|ADMTek AN983 Comet|drivers/net/tulip.c|yes|
+|pci|1113|1217|||tulip|mxic-98715|Macronix MX987x5|drivers/net/tulip.c|yes|
+|pci|1113|9511|||tulip|tulip-9511|Tulip 0x1113 0x9511|drivers/net/tulip.c|yes|
+|pci|111a|1023|||prism2_plx|ss1023|Siemens SpeedStream SS1023|drivers/net/prism2_plx.c|yes|
+|pci|1148|4300|||skge|GE|Syskonnect GE|drivers/net/skge.c|no|
+|pci|1148|4320|||skge|YU|Syskonnect YU|drivers/net/skge.c|no|
+|pci|1148|4400|||tg3|1148-4400|1148-4400|drivers/net/tg3/tg3.c|no|
+|pci|1148|4500|||tg3|1148-4500|1148-4500|drivers/net/tg3/tg3.c|no|
+|pci|1148|9000|||sky2|sk9sxx|Syskonnect SK-9Sxx|drivers/net/sky2.c|no|
+|pci|1148|9e00|||sky2|sk9exx|Syskonnect SK-9Exx|drivers/net/sky2.c|no|
+|pci|115d|0003|||tulip|xircomtulip|Xircom Tulip|drivers/net/tulip.c|yes|
+|pci|1186|0300|||ns8390|dlink-528|D-Link DE-528|drivers/net/ns8390.c|yes|
+|pci|1186|1002|||sundance|dfe530txs|D-Link DFE530TXS (Sundance ST201 Alta)|drivers/net/sundance.c|yes|
+|pci|1186|1300|||realtek|dfe538|DFE530TX+/DFE538TX|drivers/net/realtek.c|no|
+|pci|1186|1340|||realtek|dfe690|DFE-690TXD|drivers/net/realtek.c|no|
+|pci|1186|1561|||tulip|tulip-1561|Tulip 0x1186 0x1561|drivers/net/tulip.c|yes|
+|pci|1186|3300|||rtl8180|dwl510|D-Link DWL-510|drivers/net/rtl818x/rtl8180.c|no|
+|pci|1186|4001|||sky2|dge550sx|D-Link DGE-550SX|drivers/net/sky2.c|no|
+|pci|1186|4300|||realtek|dge528t|DGE-528T|drivers/net/realtek.c|no|
+|pci|1186|4b00|||sky2|dge560t|D-Link DGE-560T|drivers/net/sky2.c|no|
+|pci|1186|4b01|||skge|DGE530T|DLink DGE-530T|drivers/net/skge.c|no|
+|pci|1186|4b02|||sky2|dge560sx|D-Link DGE-560SX|drivers/net/sky2.c|no|
+|pci|1186|4b03|||sky2|dge550t|D-Link DGE-550T|drivers/net/sky2.c|no|
+|pci|1186|4c00|||skge|DGE510T|DLink DGE-510T|drivers/net/skge.c|no|
+|pci|11ab|4320|||skge|id4320|Marvell id4320|drivers/net/skge.c|no|
+|pci|11ab|4340|||sky2|m88e8021|Marvell 88E8021|drivers/net/sky2.c|no|
+|pci|11ab|4341|||sky2|m88e8022|Marvell 88E8022|drivers/net/sky2.c|no|
+|pci|11ab|4342|||sky2|m88e8061|Marvell 88E8061|drivers/net/sky2.c|no|
+|pci|11ab|4343|||sky2|m88e8062|Marvell 88E8062|drivers/net/sky2.c|no|
+|pci|11ab|4344|||sky2|m88e8021b|Marvell 88E8021|drivers/net/sky2.c|no|
+|pci|11ab|4345|||sky2|m88e8022b|Marvell 88E8022|drivers/net/sky2.c|no|
+|pci|11ab|4346|||sky2|m88e8061b|Marvell 88E8061|drivers/net/sky2.c|no|
+|pci|11ab|4347|||sky2|m88e8062b|Marvell 88E8062|drivers/net/sky2.c|no|
+|pci|11ab|4350|||sky2|m88e8035|Marvell 88E8035|drivers/net/sky2.c|no|
+|pci|11ab|4351|||sky2|m88e8036|Marvell 88E8036|drivers/net/sky2.c|no|
+|pci|11ab|4352|||sky2|m88e8038|Marvell 88E8038|drivers/net/sky2.c|no|
+|pci|11ab|4353|||sky2|m88e8039|Marvell 88E8039|drivers/net/sky2.c|no|
+|pci|11ab|4354|||sky2|m88e8040|Marvell 88E8040|drivers/net/sky2.c|no|
+|pci|11ab|4355|||sky2|m88e8040t|Marvell 88E8040T|drivers/net/sky2.c|no|
+|pci|11ab|4356|||sky2|m88ec033|Marvel 88EC033|drivers/net/sky2.c|no|
+|pci|11ab|4357|||sky2|m88e8042|Marvell 88E8042|drivers/net/sky2.c|no|
+|pci|11ab|435a|||sky2|m88e8048|Marvell 88E8048|drivers/net/sky2.c|no|
+|pci|11ab|4360|||sky2|m88e8052|Marvell 88E8052|drivers/net/sky2.c|no|
+|pci|11ab|4361|||sky2|m88e8050|Marvell 88E8050|drivers/net/sky2.c|no|
+|pci|11ab|4362|||sky2|m88e8053|Marvell 88E8053|drivers/net/sky2.c|no|
+|pci|11ab|4363|||sky2|m88e8055|Marvell 88E8055|drivers/net/sky2.c|no|
+|pci|11ab|4364|||sky2|m88e8056|Marvell 88E8056|drivers/net/sky2.c|no|
+|pci|11ab|4365|||sky2|m88e8070|Marvell 88E8070|drivers/net/sky2.c|no|
+|pci|11ab|4366|||sky2|m88ec036|Marvell 88EC036|drivers/net/sky2.c|no|
+|pci|11ab|4367|||sky2|m88ec032|Marvell 88EC032|drivers/net/sky2.c|no|
+|pci|11ab|4368|||sky2|m88ec034|Marvell 88EC034|drivers/net/sky2.c|no|
+|pci|11ab|4369|||sky2|m88ec042|Marvell 88EC042|drivers/net/sky2.c|no|
+|pci|11ab|436a|||sky2|m88e8058|Marvell 88E8058|drivers/net/sky2.c|no|
+|pci|11ab|436b|||sky2|m88e8071|Marvell 88E8071|drivers/net/sky2.c|no|
+|pci|11ab|436c|||sky2|m88e8072|Marvell 88E8072|drivers/net/sky2.c|no|
+|pci|11ab|436d|||sky2|m88e8055b|Marvell 88E8055|drivers/net/sky2.c|no|
+|pci|11ab|4370|||sky2|m88e8075|Marvell 88E8075|drivers/net/sky2.c|no|
+|pci|11ab|4380|||sky2|m88e8057|Marvell 88E8057|drivers/net/sky2.c|no|
+|pci|11ab|5005|||skge|id5005|Marvell id5005|drivers/net/skge.c|no|
+|pci|11ad|0002|||tulip|82c168|Netgear FA310TX|drivers/net/tulip.c|yes|
+|pci|11ad|c115|||tulip|lc82c115|LinkSys LNE100TX|drivers/net/tulip.c|yes|
+|pci|11db|1234|||realtek|sega8139|Sega Enterprises 8139|drivers/net/realtek.c|no|
+|pci|11f6|1401|||ns8390|compexrl2000|Compex ReadyLink 2000|drivers/net/ns8390.c|yes|
+|pci|11f6|2011|||w89c840|compexrl100atx|Compex RL100ATX|drivers/net/w89c840.c|yes|
+|pci|11f6|9881|||tulip|rl100tx|Compex RL100-TX|drivers/net/tulip.c|yes|
+|pci|1259|a117|||realtek|allied8139|Allied Telesyn 8139|drivers/net/realtek.c|no|
+|pci|1259|a11e|||realtek|allied81xx|Allied Telesyn 81xx|drivers/net/realtek.c|no|
+|pci|1259|a120|||tulip|tulip-a120|Tulip 0x1259 0xa120|drivers/net/tulip.c|yes|
+|pci|1259|c107|||realtek|allied8169|Allied Telesyn 8169|drivers/net/realtek.c|no|
+|pci|125b|1400|||tulip|ax88140|ASIX AX88140|drivers/net/tulip.c|yes|
+|pci|1260|3873|||prism2_pci|prism2_pci|Harris Semiconductor Prism2.5 clone|drivers/net/prism2_pci.c|yes|
+|pci|126c|1211|||realtek|northen8139|Northern Telecom 8139|drivers/net/realtek.c|no|
+|pci|126c|8030|||prism2_plx|emobility|Nortel emobility|drivers/net/prism2_plx.c|yes|
+|pci|1282|9009|||davicom|davicom9009|Davicom 9009|drivers/net/davicom.c|yes|
+|pci|1282|9009|||dmfe|dmfe9009|Davicom 9009|drivers/net/dmfe.c|yes|
+|pci|1282|9009|||tulip|dm9009|Davicom 9009|drivers/net/tulip.c|yes|
+|pci|1282|9100|||davicom|davicom9100|Davicom 9100|drivers/net/davicom.c|yes|
+|pci|1282|9100|||dmfe|dmfe9100|Davicom 9100|drivers/net/dmfe.c|yes|
+|pci|1282|9100|||tulip|dm9100|Davicom 9100|drivers/net/tulip.c|yes|
+|pci|1282|9102|||davicom|davicom9102|Davicom 9102|drivers/net/davicom.c|yes|
+|pci|1282|9102|||dmfe|dmfe9102|Davicom 9102|drivers/net/dmfe.c|yes|
+|pci|1282|9102|||tulip|dm9102|Davicom 9102|drivers/net/tulip.c|yes|
+|pci|1282|9132|||davicom|davicom9132|Davicom 9132|drivers/net/davicom.c|yes|
+|pci|1282|9132|||dmfe|dmfe9132|Davicom 9132|drivers/net/dmfe.c|yes|
+|pci|1282|9132|||tulip|dm9132|Davicom 9132|drivers/net/tulip.c|yes|
+|pci|12c3|0058|||ns8390|holtek80232|Holtek HT80232|drivers/net/ns8390.c|yes|
+|pci|12c3|5598|||ns8390|holtek80229|Holtek HT80229|drivers/net/ns8390.c|yes|
+|pci|1317|0981|||tulip|an981|ADMtek AN981 Comet|drivers/net/tulip.c|yes|
+|pci|1317|0985|||tulip|centaur-p|ADMtek Centaur-P|drivers/net/tulip.c|yes|
+|pci|1317|1985|||tulip|centaur-c|ADMTek Centaur-C|drivers/net/tulip.c|yes|
+|pci|1317|9511|||tulip|an983b|ADMTek Comet 983b|drivers/net/tulip.c|yes|
+|pci|1371|434e|||skge|Gigacard|CNET Gigacard|drivers/net/skge.c|no|
+|pci|1385|4100|||prism2_plx|ma301|Netgear MA301|drivers/net/prism2_plx.c|yes|
+|pci|13d1|ab02|||tulip|tulip-ab02|Tulip 0x13d1 0xab02|drivers/net/tulip.c|yes|
+|pci|13d1|ab03|||tulip|tulip-ab03|Tulip 0x13d1 0xab03|drivers/net/tulip.c|yes|
+|pci|13d1|ab06|||realtek|fe2000vx|Abocom FE2000VX|drivers/net/realtek.c|no|
+|pci|13d1|ab08|||tulip|tulip-ab08|Tulip 0x13d1 0xab08|drivers/net/tulip.c|yes|
+|pci|13f0|0200|||sundance|ip100a|IC+ IP100A|drivers/net/sundance.c|yes|
+|pci|13f0|0201|||sundance|sundance|ST201 Sundance |drivers/net/sundance.c|yes|
+|pci|13f0|1023|||icplus|ip1000a|IP1000A|drivers/net/icplus.c|no|
+|pci|1432|9130|||realtek|edi8139|Edimax 8139|drivers/net/realtek.c|no|
+|pci|14c1|0008|||myri10ge|myri10ge|Myricom 10Gb Ethernet Adapter|drivers/net/myri10ge.c|no|
+|pci|14e4|1600|||tg3|14e4-1600|14e4-1600|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1601|||tg3|14e4-1601|14e4-1601|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1604|||bnxt|14e4-1604|Broadcom BCM957454|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1605|||bnxt|14e4-1605|Broadcom BCM957454 RDMA|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1606|||bnxt|14e4-1606|Broadcom BCM957454 RDMA VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1607|||bnxt|bcm957454-1607|Broadcom BCM957454 HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1608|||bnxt|bcm957454-1608|Broadcom BCM957454 RDMA HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1609|||bnxt|14e4-1609|Broadcom BCM957454 VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1614|||bnxt|14e4-1614|Broadcom BCM957454|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1644|||tg3|14e4-1644|14e4-1644|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1645|||tg3|14e4-1645|14e4-1645|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1646|||tg3|14e4-1646|14e4-1646|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1647|||tg3|14e4-1647|14e4-1647|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1648|||tg3|14e4-1648|14e4-1648|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1649|||tg3|14e4-1649|14e4-1649|drivers/net/tg3/tg3.c|no|
+|pci|14e4|164a|||bnx2|bnx2-5706|Broadcom NetXtreme II BCM5706|drivers/net/bnx2.c|yes|
+|pci|14e4|164c|||bnx2|bnx2-5708|Broadcom NetXtreme II BCM5708|drivers/net/bnx2.c|yes|
+|pci|14e4|164d|||tg3|14e4-164d|14e4-164d|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1653|||tg3|14e4-1653|14e4-1653|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1654|||tg3|14e4-1654|14e4-1654|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1655|||tg3|14e4-1655|14e4-1655|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1656|||tg3|14e4-1656|14e4-1656|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1657|||tg3|14e4-1657|14e4-1657|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1659|||tg3|14e4-1659|14e4-1659|drivers/net/tg3/tg3.c|no|
+|pci|14e4|165a|||tg3|14e4-165a|14e4-165a|drivers/net/tg3/tg3.c|no|
+|pci|14e4|165b|||tg3|14e4-165b|14e4-165b|drivers/net/tg3/tg3.c|no|
+|pci|14e4|165d|||tg3|14e4-165d|14e4-165d|drivers/net/tg3/tg3.c|no|
+|pci|14e4|165e|||tg3|14e4-165e|14e4-165e|drivers/net/tg3/tg3.c|no|
+|pci|14e4|165f|||tg3|14e4-165f|14e4-165f|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1668|||tg3|14e4-1668|14e4-1668|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1669|||tg3|14e4-1669|14e4-1669|drivers/net/tg3/tg3.c|no|
+|pci|14e4|166a|||tg3|14e4-166a|14e4-166a|drivers/net/tg3/tg3.c|no|
+|pci|14e4|166b|||tg3|14e4-166b|14e4-166b|drivers/net/tg3/tg3.c|no|
+|pci|14e4|166e|||tg3|14e4-166e|14e4-166e|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1672|||tg3|14e4-1672|14e4-1672|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1673|||tg3|14e4-1673|14e4-1673|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1674|||tg3|14e4-1674|14e4-1674|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1677|||tg3|14e4-1677|14e4-1677|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1678|||tg3|14e4-1678|14e4-1678|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1679|||tg3|14e4-1679|14e4-1679|drivers/net/tg3/tg3.c|no|
+|pci|14e4|167a|||tg3|14e4-167a|14e4-167a|drivers/net/tg3/tg3.c|no|
+|pci|14e4|167b|||tg3|14e4-167b|14e4-167b|drivers/net/tg3/tg3.c|no|
+|pci|14e4|167d|||tg3|14e4-167d|14e4-167d|drivers/net/tg3/tg3.c|no|
+|pci|14e4|167e|||tg3|14e4-167e|14e4-167e|drivers/net/tg3/tg3.c|no|
+|pci|14e4|167f|||tg3|14e4-167f|14e4-167f|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1680|||tg3|14e4-1680|14e4-1680|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1681|||tg3|14e4-1681|14e4-1681|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1682|||tg3|14e4-1682|14e4-1682|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1684|||tg3|14e4-1684|14e4-1684|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1686|||tg3|14e4-1686|14e4-1686|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1688|||tg3|14e4-1688|14e4-1688|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1689|||tg3|14e4-1689|14e4-1689|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1690|||tg3|14e4-1690|14e4-1690|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1691|||tg3|14e4-1691|14e4-1691|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1692|||tg3|14e4-1692|14e4-1692|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1693|||tg3|14e4-1693|14e4-1693|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1694|||tg3|14e4-1694|14e4-1694|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1696|||tg3|14e4-1696|14e4-1696|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1698|||tg3|14e4-1698|14e4-1698|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1699|||tg3|14e4-1699|14e4-1699|drivers/net/tg3/tg3.c|no|
+|pci|14e4|169a|||tg3|14e4-169a|14e4-169a|drivers/net/tg3/tg3.c|no|
+|pci|14e4|169b|||tg3|14e4-169b|14e4-169b|drivers/net/tg3/tg3.c|no|
+|pci|14e4|169c|||tg3|14e4-169c|14e4-169c|drivers/net/tg3/tg3.c|no|
+|pci|14e4|169d|||tg3|14e4-169d|14e4-169d|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16a0|||tg3|14e4-16a0|14e4-16a0|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16a6|||tg3|14e4-16a6|14e4-16a6|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16a7|||tg3|14e4-16a7|14e4-16a7|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16a8|||tg3|14e4-16a8|14e4-16a8|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16aa|||bnx2|bnx2-5706S|Broadcom NetXtreme II BCM5706S|drivers/net/bnx2.c|yes|
+|pci|14e4|16ac|||bnx2|bnx2-5708S|Broadcom NetXtreme II BCM5708S|drivers/net/bnx2.c|yes|
+|pci|14e4|16b0|||tg3|14e4-16b0|14e4-16b0|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16b1|||tg3|14e4-16b1|14e4-16b1|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16b2|||tg3|14e4-16b2|14e4-16b2|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16b4|||tg3|14e4-16b4|14e4-16b4|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16b5|||tg3|14e4-16b5|14e4-16b5|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16b6|||tg3|14e4-16b6|14e4-16b6|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16bd|||bnxt|bcm95741x-16bd|Broadcom BCM95741x RDMA HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16c0|||bnxt|14e4-16c0|Broadcom BCM957417|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16c1|||bnxt|14e4-16c1|Broadcom BCM95741x VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16c5|||bnxt|bcm95741x-16c5|Broadcom BCM95741x HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16c6|||tg3|14e4-16c6|14e4-16c6|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16c7|||tg3|14e4-16c7|14e4-16c7|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16c8|||bnxt|14e4-16c8|Broadcom BCM957301|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16c9|||bnxt|14e4-16c9|Broadcom BCM957302|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ca|||bnxt|14e4-16ca|Broadcom BCM957304|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16cc|||bnxt|14e4-16cc|Broadcom BCM957417 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16cd|||bnxt|14e4-16cd|Broadcom BCM958700|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ce|||bnxt|14e4-16ce|Broadcom BCM957311|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16cf|||bnxt|14e4-16cf|Broadcom BCM957312|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d0|||bnxt|14e4-16d0|Broadcom BCM957402|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d1|||bnxt|14e4-16d1|Broadcom BCM957404|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d2|||bnxt|14e4-16d2|Broadcom BCM957406|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d4|||bnxt|14e4-16d4|Broadcom BCM957402 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d5|||bnxt|14e4-16d5|Broadcom BCM957407|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d6|||bnxt|14e4-16d6|Broadcom BCM957412|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d7|||bnxt|14e4-16d7|Broadcom BCM957414|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d8|||bnxt|14e4-16d8|Broadcom BCM957416|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16d9|||bnxt|14e4-16d9|Broadcom BCM957417|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16da|||bnxt|14e4-16da|Broadcom BCM957402|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16db|||bnxt|14e4-16db|Broadcom BCM957404|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16dc|||bnxt|14e4-16dc|Broadcom BCM95741x VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16dd|||tg3|14e4-16dd|14e4-16dd|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16de|||bnxt|14e4-16de|Broadcom BCM957412 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16df|||bnxt|14e4-16df|Broadcom BCM957314|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e0|||bnxt|14e4-16e0|Broadcom BCM957317|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e2|||bnxt|14e4-16e2|Broadcom BCM957417|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e3|||bnxt|14e4-16e3|Broadcom BCM957416|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e4|||bnxt|14e4-16e4|Broadcom BCM957317|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e7|||bnxt|14e4-16e7|Broadcom BCM957404 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e8|||bnxt|14e4-16e8|Broadcom BCM957406 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16e9|||bnxt|14e4-16e9|Broadcom BCM957407|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ea|||bnxt|14e4-16ea|Broadcom BCM957407 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16eb|||bnxt|14e4-16eb|Broadcom BCM957412 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ec|||bnxt|14e4-16ec|Broadcom BCM957414 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ed|||bnxt|14e4-16ed|Broadcom BCM957414 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ee|||bnxt|14e4-16ee|Broadcom BCM957416 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16ef|||bnxt|14e4-16ef|Broadcom BCM957416 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16f0|||bnxt|14e4-16f0|Broadcom BCM957320|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16f1|||bnxt|14e4-16f1|Broadcom BCM957320|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|16f7|||tg3|14e4-16f7|14e4-16f7|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16fd|||tg3|14e4-16fd|14e4-16fd|drivers/net/tg3/tg3.c|no|
+|pci|14e4|16fe|||tg3|14e4-16fe|14e4-16fe|drivers/net/tg3/tg3.c|no|
+|pci|14e4|170c|||b44|BCM4401-B0|BCM4401-B0|drivers/net/b44.c|no|
+|pci|14e4|170d|||tg3|14e4-170d|14e4-170d|drivers/net/tg3/tg3.c|no|
+|pci|14e4|170e|||tg3|14e4-170e|14e4-170e|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1712|||tg3|14e4-1712|14e4-1712|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1713|||tg3|14e4-1713|14e4-1713|drivers/net/tg3/tg3.c|no|
+|pci|14e4|1750|||bnxt|14e4-1750|Broadcom BCM957508|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1751|||bnxt|14e4-1751|Broadcom BCM957504|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1752|||bnxt|14e4-1752|Broadcom BCM957502|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1760|||bnxt|14e4-1760|Broadcom BCM957608|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1800|||bnxt|14e4-1800|Broadcom BCM957502 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1801|||bnxt|14e4-1801|Broadcom BCM957504 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1802|||bnxt|14e4-1802|Broadcom BCM957508 MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1803|||bnxt|14e4-1803|Broadcom BCM957502 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1804|||bnxt|14e4-1804|Broadcom BCM957504 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1805|||bnxt|14e4-1805|Broadcom BCM957508 RDMA MF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1806|||bnxt|14e4-1806|Broadcom BCM9575xx VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1807|||bnxt|14e4-1807|Broadcom BCM9575xx RDMA VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1808|||bnxt|14e4-1808|Broadcom BCM9575xx HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1809|||bnxt|14e4-1809|Broadcom BCM9575xx RDMA HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|1819|||bnxt|bcm95760x-1819|Broadcom BCM95760x VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|181b|||bnxt|bcm95760x-181b|Broadcom BCM95760x HV VF|drivers/net/bnxt/bnxt.c|no|
+|pci|14e4|4401|||b44|BCM4401|BCM4401|drivers/net/b44.c|no|
+|pci|14e4|4402|||b44|BCM4401-B1|BCM4401-B1|drivers/net/b44.c|no|
+|pci|14ea|ab06|||realtek|fnw3603tx|Planex FNW-3603-TX|drivers/net/realtek.c|no|
+|pci|14ea|ab07|||realtek|fnw3800tx|Planex FNW-3800-TX|drivers/net/realtek.c|no|
+|pci|14f1|1803|||tulip|lanfinity|Conexant LANfinity|drivers/net/tulip.c|yes|
+|pci|1500|1360|||realtek|delta8139|Delta Electronics 8139|drivers/net/realtek.c|no|
+|pci|1516|0800|||myson|mtd800|MTD-8xx|drivers/net/myson.c|no|
+|pci|1516|0803|||myson|mtd803|Surecom EP-320X-S|drivers/net/myson.c|no|
+|pci|1516|0891|||myson|mtd891|MTD-8xx|drivers/net/myson.c|no|
+|pci|15ad|07b0|||vmxnet3|vmxnet3|vmxnet3 virtual NIC|drivers/net/vmxnet3.c|no|
+|pci|15b3|1003|||hermon|mt4099|ConnectX-3 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|1007|||hermon|mt4103|ConnectX-3 Pro HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|1011|||golan|ConnectIB|ConnectIB HCA driver: DevID 4113|drivers/infiniband/golan.c|no|
+|pci|15b3|1013|||golan|ConnectX-4|ConnectX-4 HCA driver, DevID 4115|drivers/infiniband/golan.c|no|
+|pci|15b3|1015|||golan|ConnectX-4Lx|ConnectX-4Lx HCA driver, DevID 4117|drivers/infiniband/golan.c|no|
+|pci|15b3|1017|||golan|ConnectX-5|ConnectX-5 HCA driver, DevID 4119|drivers/infiniband/golan.c|no|
+|pci|15b3|1019|||golan|ConnectX-5EX|ConnectX-5EX HCA driver, DevID 4121|drivers/infiniband/golan.c|no|
+|pci|15b3|101b|||golan|ConnectX-6|ConnectX-6 HCA driver, DevID 4123|drivers/infiniband/golan.c|no|
+|pci|15b3|101d|||golan|ConnectX-6DX|ConnectX-6DX HCA driver, DevID 4125|drivers/infiniband/golan.c|no|
+|pci|15b3|101f|||golan|ConnectX-6Lx|ConnectX-6LX HCA driver, DevID 4127|drivers/infiniband/golan.c|no|
+|pci|15b3|1021|||golan|ConnectX-7|ConnectX-7 HCA driver, DevID 4129|drivers/infiniband/golan.c|no|
+|pci|15b3|6274|||arbel|mt25204|MT25204 HCA driver|drivers/infiniband/arbel.c|no|
+|pci|15b3|6282|||arbel|mt25218|MT25218 HCA driver|drivers/infiniband/arbel.c|no|
+|pci|15b3|6340|||hermon|mt25408|MT25408 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|634a|||hermon|mt25418|MT25418 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6368|||hermon|mt25448|MT25448 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6372|||hermon|mt25458|MT25458 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6732|||hermon|mt26418|MT26418 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|673c|||hermon|mt26428|MT26428 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6746|||hermon|mt26438|MT26438 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6750|||hermon|mt26448|MT26448 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|675a|||hermon|mt26458|MT26458 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6764|||hermon|mt26468|MT26468 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|676e|||hermon|mt26478|MT26478 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|6778|||hermon|mt26488|MT26488 HCA driver|drivers/infiniband/hermon.c|no|
+|pci|15b3|a2d2|||golan|BlueField|BlueField integrated ConnectX-5 network controller HCA driver, DevID 41682|drivers/infiniband/golan.c|no|
+|pci|15b3|a2d6|||golan|BlueField-2|BlueField-2 network controller HCA driver, DevID 41686|drivers/infiniband/golan.c|no|
+|pci|15b3|a2dc|||golan|BlueField-3|BlueField-3 network controller HCA driver, DevID 41692|drivers/infiniband/golan.c|no|
+|pci|15e8|0130|||prism2_plx|correga|Correga|drivers/net/prism2_plx.c|yes|
+|pci|1626|8410|||tulip|tulip-8410|Tulip 0x1626 0x8410|drivers/net/tulip.c|yes|
+|pci|1638|1100|||prism2_plx|smc2602w|SMC EZConnect SMC2602W|drivers/net/prism2_plx.c|yes|
+|pci|168c|0007|||ath5k|ath5210|Atheros 5210|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0011|||ath5k|ath5311|Atheros 5311 (AHB)|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0012|||ath5k|ath5211|Atheros 5211|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0013|||ath5k|ath5212|Atheros 5212|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0014|||ath5k|ath5212x14|Atheros 5212 x14|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0015|||ath5k|ath5212x15|Atheros 5212 x15|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0016|||ath5k|ath5212x16|Atheros 5212 x16|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0017|||ath5k|ath5212x17|Atheros 5212 x17|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0018|||ath5k|ath5212x18|Atheros 5212 x18|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0019|||ath5k|ath5212x19|Atheros 5212 x19|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|001a|||ath5k|ath2413|Atheros 2413 Griffin|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|001b|||ath5k|ath5413|Atheros 5413 Eagle|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|001c|||ath5k|ath5212e|Atheros 5212 PCI-E|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|001d|||ath5k|ath2417|Atheros 2417 Nala|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|0023|||ath9k|ar5416|Atheros 5416 PCI|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0024|||ath9k|ar5416|Atheros 5416 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0027|||ath9k|ar9160|Atheros 9160 PCI|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0029|||ath9k|ar9280|Atheros 9280 PCI|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|002a|||ath9k|ar9280|Atheros 9280 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|002b|||ath9k|ar9285|Atheros 9285 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|002c|||ath9k|ar2427|Atheros 2427 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|002d|||ath9k|ar9287|Atheros 9287 PCI|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|002e|||ath9k|ar9287|Atheros 9287 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0030|||ath9k|ar9300|Atheros 9300 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0032|||ath9k|ar9485|Atheros 9485 PCI-E|drivers/net/ath/ath9k/ath9k.c|no|
+|pci|168c|0207|||ath5k|ath5210e|Atheros 5210 early|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|168c|1014|||ath5k|ath5212m|Ath 5212 miniPCI|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|16ab|1100|||prism2_plx|gl24110p|Global Sun Tech GL24110P|drivers/net/prism2_plx.c|yes|
+|pci|16ab|1101|||prism2_plx|16ab-1101|Unknown|drivers/net/prism2_plx.c|yes|
+|pci|16ab|1102|||prism2_plx|wdt11|Linksys WDT11|drivers/net/prism2_plx.c|yes|
+|pci|16ec|0116|||realtek|usr997902|USR997902|drivers/net/realtek.c|no|
+|pci|16ec|3685|||prism2_plx|usr2415|USR 2415|drivers/net/prism2_plx.c|yes|
+|pci|1737|1032|||realtek|linksys8169|Linksys 8169|drivers/net/realtek.c|no|
+|pci|1737|1064|||skge|EG1064|Linksys EG1064|drivers/net/skge.c|no|
+|pci|1737|ab08|||tulip|tulip-1737-ab08|Tulip 0x1737 0xab08|drivers/net/tulip.c|yes|
+|pci|1737|ab09|||tulip|tulip-ab09|Tulip 0x1737 0xab09|drivers/net/tulip.c|yes|
+|pci|1737|ffff|||skge|id_any|Linksys [any]|drivers/net/skge.c|no|
+|pci|173b|03e8|||tg3|173b-03e8|173b-03e8|drivers/net/tg3/tg3.c|no|
+|pci|173b|03e9|||tg3|173b-03e9|173b-03e9|drivers/net/tg3/tg3.c|no|
+|pci|173b|03ea|||tg3|173b-03ea|173b-03ea|drivers/net/tg3/tg3.c|no|
+|pci|173b|03eb|||tg3|173b-03eb|173b-03eb|drivers/net/tg3/tg3.c|no|
+|pci|1743|8139|||realtek|rolf100|Peppercorn ROL/F-100|drivers/net/realtek.c|no|
+|pci|177d|a01e|||thunderx|thunder-pf|ThunderX NIC PF|drivers/net/thunderx.c|no|
+|pci|177d|a026|||thunderx|thunder-bgx|ThunderX BGX|drivers/net/thunderx.c|no|
+|pci|1799|6001|||rtl8180|f5d6001|Belkin F5D6001|drivers/net/rtl818x/rtl8180.c|no|
+|pci|1799|6020|||rtl8180|f5d6020|Belkin F5D6020|drivers/net/rtl818x/rtl8180.c|no|
+|pci|1799|700f|||rtl8185|f5d7000|Belkin F5D7000|drivers/net/rtl818x/rtl8185.c|no|
+|pci|1799|701f|||rtl8185|f5d7010|Belkin F5D7010|drivers/net/rtl818x/rtl8185.c|no|
+|pci|17d5|5833|||vxge|vxge-x3100|Neterion X3100 Series|drivers/net/vxge/vxge.c|no|
+|pci|17f3|6040|||rdc|r6040|RDC R6040|drivers/net/rdc.c|no|
+|pci|1924|0703|||etherfabric|falcon|EtherFabric Falcon|drivers/net/etherfabric.c|no|
+|pci|1924|0710|||etherfabric|falconb0|EtherFabric FalconB0|drivers/net/etherfabric.c|no|
+|pci|1924|0903|||sfc_hunt|SFC9120|Solarflare SFC9120 Adapter|drivers/net/sfc/sfc_hunt.c|no|
+|pci|1924|0923|||sfc_hunt|SFC9140|Solarflare SFC9140 Adapter|drivers/net/sfc/sfc_hunt.c|no|
+|pci|1924|0a03|||sfc_hunt|SFC9220|Solarflare SFN8xxx Adapter|drivers/net/sfc/sfc_hunt.c|no|
+|pci|1924|0b03|||sfc_hunt|SFC9250|Solarflare X25xx Adapter|drivers/net/sfc/sfc_hunt.c|no|
+|pci|1969|1026|||atl1e|atl1e_26|Attansic L1E 0x1026|drivers/net/atl1e.c|no|
+|pci|1969|1066|||atl1e|atl1e_66|Attansic L1E 0x1066|drivers/net/atl1e.c|no|
+|pci|197b|0250|||jme|jme|JMicron Gigabit Ethernet|drivers/net/jme.c|no|
+|pci|197b|0260|||jme|jmfe|JMicron Fast Ethernet|drivers/net/jme.c|no|
+|pci|1ae0|0042|||gve|gve|gVNIC|drivers/net/gve.c|no|
+|pci|1af4|1000|||virtio-net|virtio-net|Virtio (legacy)|drivers/net/virtio-net.c|no|
+|pci|1af4|1041|||virtio-net|virtio-net|Virtio (modern)|drivers/net/virtio-net.c|no|
+|pci|1ce4|0001|||exanic|exanic-x4|ExaNIC X4|drivers/net/exanic.c|no|
+|pci|1ce4|0002|||exanic|exanic-x2|ExaNIC X2|drivers/net/exanic.c|no|
+|pci|1ce4|0003|||exanic|exanic-x10|ExaNIC X10|drivers/net/exanic.c|no|
+|pci|1ce4|0004|||exanic|exanic-x10gm|ExaNIC X10 GM|drivers/net/exanic.c|no|
+|pci|1ce4|0005|||exanic|exanic-x40|ExaNIC X40|drivers/net/exanic.c|no|
+|pci|1ce4|0006|||exanic|exanic-x10hpt|ExaNIC X10 HPT|drivers/net/exanic.c|no|
+|pci|1ce4|0007|||exanic|exanic-x40g|ExaNIC X40|drivers/net/exanic.c|no|
+|pci|1d0f|ec20|||ena|ena-vf|ENA VF|drivers/net/ena.c|no|
+|pci|1d0f|ec21|||ena|ena-vf-llq|ENA VF (LLQ)|drivers/net/ena.c|no|
+|pci|1d6a|0001|||aqc1xx|AQC07|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|00b1|||aqc1xx|AQC00|Felicity Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|00c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|03c0|||aqc1xx|AQC14|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|04c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|07b1|||aqc1xx|AQC07|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|08b1|||aqc1xx|AQC08|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|09b1|||aqc1xx|AQC09|Marvell AQtion 2.5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|11b1|||aqc1xx|AQC11|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|12b1|||aqc1xx|AQC12|Marvell AQtion 2.5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|12c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|14c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|80b1|||aqc1xx|AQC00|Felicity Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|87b1|||aqc1xx|AQC07|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|88b1|||aqc1xx|AQC08|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|89b1|||aqc1xx|AQC09|Marvell AQtion 2.5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|91b1|||aqc1xx|AQC11|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|92b1|||aqc1xx|AQC12|Marvell AQtion 2.5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|93c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|94c0|||aqc1xx|AQC13|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|d100|||aqc1xx|AQC00|Felicity Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|d107|||aqc1xx|AQC07|Marvell AQtion 10Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|d108|||aqc1xx|AQC08|Marvell AQtion 5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|1d6a|d109|||aqc1xx|AQC09|Marvell AQtion 2.5Gbit Network Adapter|drivers/net/marvell/aqc1xx.c|no|
+|pci|4033|1360|||realtek|addron8139|Addtron 8139|drivers/net/realtek.c|no|
+|pci|4040|0100|||phantom|nx|NX|drivers/net/phantom/phantom.c|no|
+|pci|4a14|5000|||ns8390|nv5000sc|NetVin NV5000SC|drivers/net/ns8390.c|yes|
+|pci|5853|0001|||hvm|hvm|hvm|arch/x86/drivers/xen/hvm.c|no|
+|pci|5853|0002|||hvm|hvm2|hvm2|arch/x86/drivers/xen/hvm.c|no|
+|pci|5ce1|5ce1|||skeleton|skel|Skeleton|drivers/net/skeleton.c|no|
+|pci|8086|0039|||tulip|intel21145|Intel Tulip|drivers/net/tulip.c|yes|
+|pci|8086|0438|||intel|dh8900cc|DH8900CC|drivers/net/intel.c|no|
+|pci|8086|043a|||intel|dh8900cc-f|DH8900CC Fiber|drivers/net/intel.c|no|
+|pci|8086|043c|||intel|dh8900cc-b|DH8900CC Backplane|drivers/net/intel.c|no|
+|pci|8086|0440|||intel|dh8900cc-s|DH8900CC SFP|drivers/net/intel.c|no|
+|pci|8086|0cf8|||intelxl|x710-n3000|X710 FPGA N3000|drivers/net/intelxl.c|no|
+|pci|8086|0d4c|||intel|i219lm-11|I219-LM (11)|drivers/net/intel.c|no|
+|pci|8086|0d4d|||intel|i219v-11|I219-V (11)|drivers/net/intel.c|no|
+|pci|8086|0d4e|||intel|i219lm-10|I219-LM (10)|drivers/net/intel.c|no|
+|pci|8086|0d4f|||intel|i219v-10|I219-V (10)|drivers/net/intel.c|no|
+|pci|8086|0d53|||intel|i219lm-12|I219-LM (12)|drivers/net/intel.c|no|
+|pci|8086|0d55|||intel|i219v-12|I219-V (12)|drivers/net/intel.c|no|
+|pci|8086|0d58|||intelxl|xxv710-n3000|XXV710 FPGA N3000|drivers/net/intelxl.c|no|
+|pci|8086|0d9f|||intel|i225it|I225-IT|drivers/net/intel.c|no|
+|pci|8086|0dc5|||intel|i219lm-23|I219-LM (23)|drivers/net/intel.c|no|
+|pci|8086|0dc6|||intel|i219v-23|I219-v (23)|drivers/net/intel.c|no|
+|pci|8086|1000|||intel|82542-f|82542 (Fiber)|drivers/net/intel.c|no|
+|pci|8086|1001|||intel|82543gc-f|82543GC (Fiber)|drivers/net/intel.c|no|
+|pci|8086|1004|||intel|82543gc|82543GC (Copper)|drivers/net/intel.c|no|
+|pci|8086|1008|||intel|82544ei|82544EI (Copper)|drivers/net/intel.c|no|
+|pci|8086|1009|||intel|82544ei-f|82544EI (Fiber)|drivers/net/intel.c|no|
+|pci|8086|100c|||intel|82544gc|82544GC (Copper)|drivers/net/intel.c|no|
+|pci|8086|100d|||intel|82544gc-l|82544GC (LOM)|drivers/net/intel.c|no|
+|pci|8086|100e|||intel|82540em|82540EM|drivers/net/intel.c|no|
+|pci|8086|100f|||intel|82545em|82545EM (Copper)|drivers/net/intel.c|no|
+|pci|8086|1010|||intel|82546eb|82546EB (Copper)|drivers/net/intel.c|no|
+|pci|8086|1011|||intel|82545em-f|82545EM (Fiber)|drivers/net/intel.c|no|
+|pci|8086|1012|||intel|82546eb-f|82546EB (Fiber)|drivers/net/intel.c|no|
+|pci|8086|1013|||intel|82541ei|82541EI|drivers/net/intel.c|no|
+|pci|8086|1014|||intel|82541er|82541ER|drivers/net/intel.c|no|
+|pci|8086|1015|||intel|82540em-l|82540EM (LOM)|drivers/net/intel.c|no|
+|pci|8086|1016|||intel|82540ep-m|82540EP (Mobile)|drivers/net/intel.c|no|
+|pci|8086|1017|||intel|82540ep|82540EP|drivers/net/intel.c|no|
+|pci|8086|1018|||intel|82541ei|82541EI|drivers/net/intel.c|no|
+|pci|8086|1019|||intel|82547ei|82547EI|drivers/net/intel.c|no|
+|pci|8086|101a|||intel|82547ei-m|82547EI (Mobile)|drivers/net/intel.c|no|
+|pci|8086|101d|||intel|82546eb|82546EB|drivers/net/intel.c|no|
+|pci|8086|101e|||intel|82540ep-m|82540EP (Mobile)|drivers/net/intel.c|no|
+|pci|8086|1026|||intel|82545gm|82545GM|drivers/net/intel.c|no|
+|pci|8086|1027|||intel|82545gm-1|82545GM|drivers/net/intel.c|no|
+|pci|8086|1028|||intel|82545gm-2|82545GM|drivers/net/intel.c|no|
+|pci|8086|1029|||eepro100|id1029|Intel EtherExpressPro100 ID1029|drivers/net/eepro100.c|no|
+|pci|8086|1030|||eepro100|id1030|Intel EtherExpressPro100 ID1030|drivers/net/eepro100.c|no|
+|pci|8086|1031|||eepro100|82801cam|Intel 82801CAM (ICH3) Chipset Ethernet Controller|drivers/net/eepro100.c|no|
+|pci|8086|1032|||eepro100|eepro100-1032|Intel PRO/100 VE Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1033|||eepro100|eepro100-1033|Intel PRO/100 VM Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1034|||eepro100|eepro100-1034|Intel PRO/100 VM Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1035|||eepro100|eepro100-1035|Intel 82801CAM (ICH3) Chipset Ethernet Controller|drivers/net/eepro100.c|no|
+|pci|8086|1036|||eepro100|eepro100-1036|Intel 82801CAM (ICH3) Chipset Ethernet Controller|drivers/net/eepro100.c|no|
+|pci|8086|1037|||eepro100|eepro100-1037|Intel 82801CAM (ICH3) Chipset Ethernet Controller|drivers/net/eepro100.c|no|
+|pci|8086|1038|||eepro100|id1038|Intel PRO/100 VM Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1039|||eepro100|82562et|Intel PRO100 VE 82562ET|drivers/net/eepro100.c|no|
+|pci|8086|103a|||eepro100|id103a|Intel Corporation 82559 InBusiness 10/100|drivers/net/eepro100.c|no|
+|pci|8086|103b|||eepro100|82562etb|Intel PRO100 VE 82562ETB|drivers/net/eepro100.c|no|
+|pci|8086|103c|||eepro100|eepro100-103c|Intel PRO/100 VM Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|103d|||eepro100|eepro100-103d|Intel PRO/100 VE Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|103e|||eepro100|eepro100-103e|Intel PRO/100 VM Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1049|||intel|82566mm|82566MM|drivers/net/intel.c|no|
+|pci|8086|104a|||intel|82566dm|82566DM|drivers/net/intel.c|no|
+|pci|8086|104b|||intel|82566dc|82566DC|drivers/net/intel.c|no|
+|pci|8086|104c|||intel|82562v|82562V|drivers/net/intel.c|no|
+|pci|8086|104d|||intel|82566mc|82566MC|drivers/net/intel.c|no|
+|pci|8086|104e|||intelxl|x710-sfp-b|X710 10GbE SFP+|drivers/net/intelxl.c|no|
+|pci|8086|104f|||intelxl|x710-kx-b|X710 10GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|1050|||eepro100|82562ez|Intel 82562EZ Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1051|||eepro100|prove|Intel PRO/100 VE Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1059|||eepro100|82551qm|Intel PRO/100 M Mobile Connection|drivers/net/eepro100.c|no|
+|pci|8086|105e|||intel|82571eb|82571EB|drivers/net/intel.c|no|
+|pci|8086|105f|||intel|82571eb-1|82571EB|drivers/net/intel.c|no|
+|pci|8086|1060|||intel|82571eb-2|82571EB|drivers/net/intel.c|no|
+|pci|8086|1065|||eepro100|82562-3|Intel 82562 based Fast Ethernet Connection|drivers/net/eepro100.c|no|
+|pci|8086|1075|||intel|82547gi|82547GI|drivers/net/intel.c|no|
+|pci|8086|1076|||intel|82541gi|82541GI|drivers/net/intel.c|no|
+|pci|8086|1077|||intel|82541gi-1|82541GI|drivers/net/intel.c|no|
+|pci|8086|1078|||intel|82541er|82541ER|drivers/net/intel.c|no|
+|pci|8086|1079|||intel|82546gb|82546GB|drivers/net/intel.c|no|
+|pci|8086|107a|||intel|82546gb-1|82546GB|drivers/net/intel.c|no|
+|pci|8086|107b|||intel|82546gb-2|82546GB|drivers/net/intel.c|no|
+|pci|8086|107c|||intel|82541pi|82541PI|drivers/net/intel.c|no|
+|pci|8086|107d|||intel|82572ei|82572EI (Copper)|drivers/net/intel.c|no|
+|pci|8086|107e|||intel|82572ei-f|82572EI (Fiber)|drivers/net/intel.c|no|
+|pci|8086|107f|||intel|82572ei|82572EI|drivers/net/intel.c|no|
+|pci|8086|108a|||intel|82546gb-3|82546GB|drivers/net/intel.c|no|
+|pci|8086|108b|||intel|82573v|82573V (Copper)|drivers/net/intel.c|no|
+|pci|8086|108c|||intel|82573e|82573E (Copper)|drivers/net/intel.c|no|
+|pci|8086|1092|||eepro100|82562-3|Intel Pro/100 VE Network|drivers/net/eepro100.c|no|
+|pci|8086|1096|||intel|80003es2lan|80003ES2LAN (Copper)|drivers/net/intel.c|no|
+|pci|8086|1098|||intel|80003es2lan-s|80003ES2LAN (Serdes)|drivers/net/intel.c|no|
+|pci|8086|1099|||intel|82546gb-4|82546GB (Copper)|drivers/net/intel.c|no|
+|pci|8086|109a|||intel|82573l|82573L|drivers/net/intel.c|no|
+|pci|8086|10a4|||intel|82571eb|82571EB|drivers/net/intel.c|no|
+|pci|8086|10a5|||intel|82571eb|82571EB (Fiber)|drivers/net/intel.c|no|
+|pci|8086|10a7|||intel|82575eb|82575EB|drivers/net/intel.c|no|
+|pci|8086|10a9|||intel|82575eb|82575EB Backplane|drivers/net/intel.c|no|
+|pci|8086|10b5|||intel|82546gb|82546GB (Copper)|drivers/net/intel.c|no|
+|pci|8086|10b9|||intel|82572ei|82572EI (Copper)|drivers/net/intel.c|no|
+|pci|8086|10ba|||intel|80003es2lan|80003ES2LAN (Copper)|drivers/net/intel.c|no|
+|pci|8086|10bb|||intel|80003es2lan|80003ES2LAN (Serdes)|drivers/net/intel.c|no|
+|pci|8086|10bc|||intel|82571eb|82571EB (Copper)|drivers/net/intel.c|no|
+|pci|8086|10bd|||intel|82566dm-2|82566DM-2|drivers/net/intel.c|no|
+|pci|8086|10bf|||intel|82567lf|82567LF|drivers/net/intel.c|no|
+|pci|8086|10c0|||intel|82562v-2|82562V-2|drivers/net/intel.c|no|
+|pci|8086|10c2|||intel|82562g-2|82562G-2|drivers/net/intel.c|no|
+|pci|8086|10c3|||intel|82562gt-2|82562GT-2|drivers/net/intel.c|no|
+|pci|8086|10c4|||intel|82562gt|82562GT|drivers/net/intel.c|no|
+|pci|8086|10c5|||intel|82562g|82562G|drivers/net/intel.c|no|
+|pci|8086|10c9|||intel|82576|82576|drivers/net/intel.c|no|
+|pci|8086|10ca|||igbvf_main|igbvf|E1000_DEV_ID_82576_VF|drivers/net/igbvf/igbvf_main.c|no|
+|pci|8086|10cb|||intel|82567v|82567V|drivers/net/intel.c|no|
+|pci|8086|10cc|||intel|82567lm-2|82567LM-2|drivers/net/intel.c|no|
+|pci|8086|10cd|||intel|82567lf-2|82567LF-2|drivers/net/intel.c|no|
+|pci|8086|10ce|||intel|82567v-2|82567V-2|drivers/net/intel.c|no|
+|pci|8086|10d3|||intel|82574l|82574L|drivers/net/intel.c|no|
+|pci|8086|10d5|||intel|82571pt|82571PT PT Quad|drivers/net/intel.c|no|
+|pci|8086|10d6|||intel|82575gb|82575GB|drivers/net/intel.c|no|
+|pci|8086|10d9|||intel|82571eb-d|82571EB Dual Mezzanine|drivers/net/intel.c|no|
+|pci|8086|10da|||intel|82571eb-q|82571EB Quad Mezzanine|drivers/net/intel.c|no|
+|pci|8086|10de|||intel|82567lm-3|82567LM-3|drivers/net/intel.c|no|
+|pci|8086|10df|||intel|82567lf-3|82567LF-3|drivers/net/intel.c|no|
+|pci|8086|10e5|||intel|82567lm-4|82567LM-4|drivers/net/intel.c|no|
+|pci|8086|10e6|||intel|82576|82576|drivers/net/intel.c|no|
+|pci|8086|10e7|||intel|82576-2|82576|drivers/net/intel.c|no|
+|pci|8086|10e8|||intel|82576-3|82576|drivers/net/intel.c|no|
+|pci|8086|10ea|||intel|82577lm|82577LM|drivers/net/intel.c|no|
+|pci|8086|10eb|||intel|82577lc|82577LC|drivers/net/intel.c|no|
+|pci|8086|10ed|||intelxvf|82599-vf|82599 VF|drivers/net/intelxvf.c|no|
+|pci|8086|10ef|||intel|82578dm|82578DM|drivers/net/intel.c|no|
+|pci|8086|10f0|||intel|82578dc|82578DC|drivers/net/intel.c|no|
+|pci|8086|10f5|||intel|82567lm|82567LM|drivers/net/intel.c|no|
+|pci|8086|10f6|||intel|82574l|82574L|drivers/net/intel.c|no|
+|pci|8086|10f7|||intelx|82599-kx4|82599 (KX/KX4)|drivers/net/intelx.c|no|
+|pci|8086|10f8|||intelx|82599-combo-backplane|82599 (combined backplane; KR/KX4/KX)|drivers/net/intelx.c|no|
+|pci|8086|10f9|||intelx|82599-cx4|82599 (CX4)|drivers/net/intelx.c|no|
+|pci|8086|10fb|||intelx|82599-sfp|82599 (SFI/SFP+)|drivers/net/intelx.c|no|
+|pci|8086|10fc|||intelx|82599-xaui|82599 (XAUI/BX4)|drivers/net/intelx.c|no|
+|pci|8086|10fe|||eepro100|82552|Intel 82552 10/100 Network Connection|drivers/net/eepro100.c|no|
+|pci|8086|1209|||eepro100|82559er|Intel EtherExpressPro100 82559ER|drivers/net/eepro100.c|no|
+|pci|8086|1227|||eepro100|82865|Intel 82865 EtherExpress PRO/100A|drivers/net/eepro100.c|no|
+|pci|8086|1228|||eepro100|82556|Intel 82556 EtherExpress PRO/100 Smart|drivers/net/eepro100.c|no|
+|pci|8086|1229|||eepro100|eepro100|Intel EtherExpressPro100|drivers/net/eepro100.c|no|
+|pci|8086|1248|||ice|e835cc-bp|E835-CC backplane|drivers/net/ice.c|no|
+|pci|8086|1249|||ice|e835cc-qsfp|E835-CC QSFP56|drivers/net/ice.c|no|
+|pci|8086|124a|||ice|e835cc-sfp|E835-CC SFP|drivers/net/ice.c|no|
+|pci|8086|124c|||ice|e823l-bp|E823-L backplane|drivers/net/ice.c|no|
+|pci|8086|124d|||ice|e823l-sfp|E823-L SFP|drivers/net/ice.c|no|
+|pci|8086|124e|||ice|e823l-10gt|E823-L 10GBASE-T|drivers/net/ice.c|no|
+|pci|8086|124f|||ice|e823l-1g|E823-L 1GbE|drivers/net/ice.c|no|
+|pci|8086|125b|||intel|i226lm|I226-LM|drivers/net/intel.c|no|
+|pci|8086|125c|||intel|i226v|I226-V|drivers/net/intel.c|no|
+|pci|8086|125d|||intel|i226it|I226-IT|drivers/net/intel.c|no|
+|pci|8086|1261|||ice|e835c-bp|E835-C backplane|drivers/net/ice.c|no|
+|pci|8086|1262|||ice|e835c-qsfp|E835-C QSFP|drivers/net/ice.c|no|
+|pci|8086|1263|||ice|e835c-sfp|E835-C SFP|drivers/net/ice.c|no|
+|pci|8086|1265|||ice|e835l-bp|E835-L backplane|drivers/net/ice.c|no|
+|pci|8086|1266|||ice|e835l-qsfp|E835-L QSFP|drivers/net/ice.c|no|
+|pci|8086|1267|||ice|e835l-sfp|E835-L SFP|drivers/net/ice.c|no|
+|pci|8086|1501|||intel|82567v-3|82567V-3|drivers/net/intel.c|no|
+|pci|8086|1502|||intel|82579lm|82579LM|drivers/net/intel.c|no|
+|pci|8086|1503|||intel|82579v|82579V|drivers/net/intel.c|no|
+|pci|8086|150a|||intel|82576ns|82576NS|drivers/net/intel.c|no|
+|pci|8086|150c|||intel|82583v|82583V|drivers/net/intel.c|no|
+|pci|8086|150d|||intel|82576-4|82576 Backplane|drivers/net/intel.c|no|
+|pci|8086|150e|||intel|82580|82580|drivers/net/intel.c|no|
+|pci|8086|150f|||intel|82580-f|82580 Fiber|drivers/net/intel.c|no|
+|pci|8086|1510|||intel|82580-b|82580 Backplane|drivers/net/intel.c|no|
+|pci|8086|1511|||intel|82580-s|82580 SFP|drivers/net/intel.c|no|
+|pci|8086|1515|||intelxvf|x540-vf|X540 VF|drivers/net/intelxvf.c|no|
+|pci|8086|1516|||intel|82580-2|82580|drivers/net/intel.c|no|
+|pci|8086|1518|||intel|82576ns|82576NS SerDes|drivers/net/intel.c|no|
+|pci|8086|151c|||intelx|82599-tn|82599 (TN)|drivers/net/intelx.c|no|
+|pci|8086|151d|||ice|e823l-qsfp|E823-L QSFP|drivers/net/ice.c|no|
+|pci|8086|1520|||igbvf_main|i350vf|E1000_DEV_ID_I350_VF|drivers/net/igbvf/igbvf_main.c|no|
+|pci|8086|1521|||intel|i350|I350|drivers/net/intel.c|no|
+|pci|8086|1522|||intel|i350-f|I350 Fiber|drivers/net/intel.c|no|
+|pci|8086|1523|||intel|i350-b|I350 Backplane|drivers/net/intel.c|no|
+|pci|8086|1524|||intel|i350-2|I350|drivers/net/intel.c|no|
+|pci|8086|1525|||intel|82567v-4|82567V-4|drivers/net/intel.c|no|
+|pci|8086|1526|||intel|82576-5|82576|drivers/net/intel.c|no|
+|pci|8086|1527|||intel|82580-f2|82580 Fiber|drivers/net/intel.c|no|
+|pci|8086|1528|||intelx|x540t|X540-AT2/X540-BT2|drivers/net/intelx.c|no|
+|pci|8086|1533|||intel|i210|I210|drivers/net/intel.c|no|
+|pci|8086|1539|||intel|i211|I211|drivers/net/intel.c|no|
+|pci|8086|153a|||intel|i217lm|I217-LM|drivers/net/intel.c|no|
+|pci|8086|153b|||intel|i217v|I217-V|drivers/net/intel.c|no|
+|pci|8086|154c|||intelxlvf|xl710-vf|XL710 VF|drivers/net/intelxlvf.c|no|
+|pci|8086|154d|||intelx|82599-sfp-sf2|82599 (SFI/SFP+)|drivers/net/intelx.c|no|
+|pci|8086|1557|||intelx|82599en-sfp|82599 (Single Port SFI Only)|drivers/net/intelx.c|no|
+|pci|8086|1559|||intel|i218v|I218-V|drivers/net/intel.c|no|
+|pci|8086|155a|||intel|i218lm|I218-LM|drivers/net/intel.c|no|
+|pci|8086|1560|||intelx|x540t1|X540-AT2/X540-BT2 (with single port NVM)|drivers/net/intelx.c|no|
+|pci|8086|1563|||intelx|x550t2|X550-T2|drivers/net/intelx.c|no|
+|pci|8086|1565|||intelxvf|x550-vf|X550 VF|drivers/net/intelxvf.c|no|
+|pci|8086|156f|||intel|i219lm|I219-LM|drivers/net/intel.c|no|
+|pci|8086|1570|||intel|i219v|I219-V|drivers/net/intel.c|no|
+|pci|8086|1571|||intelxlvf|xl710-vf-hv|XL710 VF (Hyper-V)|drivers/net/intelxlvf.c|no|
+|pci|8086|1572|||intelxl|x710-sfp|X710 10GbE SFP+|drivers/net/intelxl.c|no|
+|pci|8086|1574|||intelxl|xl710-qemu|Virtual XL710|drivers/net/intelxl.c|no|
+|pci|8086|157b|||intel|i210-2|I210|drivers/net/intel.c|no|
+|pci|8086|1580|||intelxl|xl710-kx-b|XL710 40GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|1581|||intelxl|xl710-kx-c|XL710 10GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|1583|||intelxl|xl710-qda2|XL710 40GbE QSFP+|drivers/net/intelxl.c|no|
+|pci|8086|1584|||intelxl|xl710-qda1|XL710 40GbE QSFP+|drivers/net/intelxl.c|no|
+|pci|8086|1585|||intelxl|x710-qsfp|X710 10GbE QSFP+|drivers/net/intelxl.c|no|
+|pci|8086|1586|||intelxl|x710-10gt|X710 10GBASE-T|drivers/net/intelxl.c|no|
+|pci|8086|1587|||intelxl|x710-kr2|XL710 20GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|1588|||intelxl|x710-kr2-a|XL710 20GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|1589|||intelxl|x710-10gt4|X710 10GBASE-T4|drivers/net/intelxl.c|no|
+|pci|8086|158a|||intelxl|xxv710|XXV710 25GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|158b|||intelxl|xxv710-sfp28|XXV710 25GbE SFP28|drivers/net/intelxl.c|no|
+|pci|8086|1591|||ice|e810c-bp|E810-C backplane|drivers/net/ice.c|no|
+|pci|8086|1592|||ice|e810c-qsfp|E810-C QSFP|drivers/net/ice.c|no|
+|pci|8086|1593|||ice|e810c-sfp|E810-C SFP|drivers/net/ice.c|no|
+|pci|8086|1599|||ice|e810-xxv-bp|E810-XXV backplane|drivers/net/ice.c|no|
+|pci|8086|159a|||ice|e810-xxv-qsfp|E810-XXV QSFP|drivers/net/ice.c|no|
+|pci|8086|159b|||ice|e810-xxv-sfp|E810-XXV SFP|drivers/net/ice.c|no|
+|pci|8086|15a0|||intel|i218lm-2|I218-LM|drivers/net/intel.c|no|
+|pci|8086|15a1|||intel|i218v-2|I218-V|drivers/net/intel.c|no|
+|pci|8086|15a2|||intel|i218lm-3|I218-LM|drivers/net/intel.c|no|
+|pci|8086|15a3|||intel|i218v-3|I218-V|drivers/net/intel.c|no|
+|pci|8086|15a8|||intelxvf|x552-vf|X552 VF|drivers/net/intelxvf.c|no|
+|pci|8086|15ab|||intelx|x552|X552|drivers/net/intelx.c|no|
+|pci|8086|15b7|||intel|i219lm-2|I219-LM (2)|drivers/net/intel.c|no|
+|pci|8086|15b8|||intel|i219v-2|I219-V (2)|drivers/net/intel.c|no|
+|pci|8086|15b9|||intel|i219lm-3|I219-LM (3)|drivers/net/intel.c|no|
+|pci|8086|15bb|||intel|i219lm-7|I219-LM (7)|drivers/net/intel.c|no|
+|pci|8086|15bc|||intel|i219v-7|I219-V (7)|drivers/net/intel.c|no|
+|pci|8086|15bd|||intel|i219lm-6|I219-LM (6)|drivers/net/intel.c|no|
+|pci|8086|15be|||intel|i219v-6|I219-V (6)|drivers/net/intel.c|no|
+|pci|8086|15c5|||intelxvf|x557-vf|X557-AT2 VF|drivers/net/intelxvf.c|no|
+|pci|8086|15c8|||intelx|x553t|X553/X557-AT|drivers/net/intelx.c|no|
+|pci|8086|15ce|||intelx|x553-sfp|X553 (SFP+)|drivers/net/intelx.c|no|
+|pci|8086|15d6|||intel|i219v-5|I219-V (5)|drivers/net/intel.c|no|
+|pci|8086|15d7|||intel|i219lm-4|I219-LM (4)|drivers/net/intel.c|no|
+|pci|8086|15d8|||intel|i219v-4|I219-V (4)|drivers/net/intel.c|no|
+|pci|8086|15df|||intel|i219lm-8|I219-LM (8)|drivers/net/intel.c|no|
+|pci|8086|15e0|||intel|i219v-8|I219-V (8)|drivers/net/intel.c|no|
+|pci|8086|15e1|||intel|i219lm-9|I219-LM (9)|drivers/net/intel.c|no|
+|pci|8086|15e2|||intel|i219v-9|I219-V (9)|drivers/net/intel.c|no|
+|pci|8086|15e3|||intel|i219lm-5|I219-LM (5)|drivers/net/intel.c|no|
+|pci|8086|15e4|||intelx|x553a|X553|drivers/net/intelx.c|no|
+|pci|8086|15e5|||intelx|x553|X553|drivers/net/intelx.c|no|
+|pci|8086|15f2|||intel|i225lm|I225-LM|drivers/net/intel.c|no|
+|pci|8086|15f3|||intel|i225v|I225-V|drivers/net/intel.c|no|
+|pci|8086|15f4|||intel|i219lm-15|I219-LM (15)|drivers/net/intel.c|no|
+|pci|8086|15f5|||intel|i219v-15|I219-V (15)|drivers/net/intel.c|no|
+|pci|8086|15f9|||intel|i219lm-14|I219-LM (14)|drivers/net/intel.c|no|
+|pci|8086|15fa|||intel|i219v-14|I219-V (14)|drivers/net/intel.c|no|
+|pci|8086|15fb|||intel|i219lm-13|I219-LM (13)|drivers/net/intel.c|no|
+|pci|8086|15fc|||intel|i219v-13|I219-V (13)|drivers/net/intel.c|no|
+|pci|8086|15ff|||intelxl|x710-10gt-b|X710 10GBASE-T|drivers/net/intelxl.c|no|
+|pci|8086|1889|||intelxlvf|iavf|Intel adaptive VF|drivers/net/intelxlvf.c|no|
+|pci|8086|188a|||ice|e823c-bp|E823-C backplane|drivers/net/ice.c|no|
+|pci|8086|188b|||ice|e823c-qsfp|E823-C QSFP|drivers/net/ice.c|no|
+|pci|8086|188c|||ice|e823c-sfp|E823-C SFP|drivers/net/ice.c|no|
+|pci|8086|188d|||ice|e823c-10gt|E823-C 10GBASE-T|drivers/net/ice.c|no|
+|pci|8086|188e|||ice|e823c-1g|E823-C 1GbE|drivers/net/ice.c|no|
+|pci|8086|1890|||ice|e822c-bp|E822-C backplane|drivers/net/ice.c|no|
+|pci|8086|1891|||ice|e822c-qsfp|E822-C QSFP|drivers/net/ice.c|no|
+|pci|8086|1892|||ice|e822c-sfp|E822-C SFP|drivers/net/ice.c|no|
+|pci|8086|1893|||ice|e822c-10gt|E822-C 10GBASE-T|drivers/net/ice.c|no|
+|pci|8086|1894|||ice|e822c-1g|E822-C 1GbE|drivers/net/ice.c|no|
+|pci|8086|1897|||ice|e822l-bp|E822-L backplane|drivers/net/ice.c|no|
+|pci|8086|1898|||ice|e822l-sfp|E822-L SFP|drivers/net/ice.c|no|
+|pci|8086|1899|||ice|e822l-10gt|E822-L 10GBASE-T|drivers/net/ice.c|no|
+|pci|8086|189a|||ice|e822l-1g|E822-L 1GbE|drivers/net/ice.c|no|
+|pci|8086|1a1c|||intel|i219lm-17|I219-LM (17)|drivers/net/intel.c|no|
+|pci|8086|1a1d|||intel|i219v-17|I219-V (17)|drivers/net/intel.c|no|
+|pci|8086|1a1e|||intel|i219lm-16|I219-LM (16)|drivers/net/intel.c|no|
+|pci|8086|1a1f|||intel|i219v-16|I219-V (16)|drivers/net/intel.c|no|
+|pci|8086|1f41|||intel|i354|I354|drivers/net/intel.c|no|
+|pci|8086|2449|||eepro100|82562em|Intel EtherExpressPro100 82562EM|drivers/net/eepro100.c|no|
+|pci|8086|2459|||eepro100|82562-1|Intel 82562 based Fast Ethernet Connection|drivers/net/eepro100.c|no|
+|pci|8086|245d|||eepro100|82562-2|Intel 82562 based Fast Ethernet Connection|drivers/net/eepro100.c|no|
+|pci|8086|27dc|||eepro100|eepro100-27dc|Intel 82801G (ICH7) Chipset Ethernet Controller|drivers/net/eepro100.c|no|
+|pci|8086|294c|||intel|82566dc-2|82566DC-2|drivers/net/intel.c|no|
+|pci|8086|2e6e|||intel|cemedia|CE Media Processor|drivers/net/intel.c|no|
+|pci|8086|37cd|||intelxlvf|x722-vf|X722 VF|drivers/net/intelxlvf.c|no|
+|pci|8086|37ce|||intelxl|x722-kx|X722 10GbE backplane|drivers/net/intelxl.c|no|
+|pci|8086|37cf|||intelxl|x722-qsfp|X722 10GbE QSFP+|drivers/net/intelxl.c|no|
+|pci|8086|37d0|||intelxl|x722-sfp|X722 10GbE SFP+|drivers/net/intelxl.c|no|
+|pci|8086|37d1|||intelxl|x722-1gt|X722 1GBASE-T|drivers/net/intelxl.c|no|
+|pci|8086|37d2|||intelxl|x722-10gt|X722 10GBASE-T|drivers/net/intelxl.c|no|
+|pci|8086|37d3|||intelxl|x722-sfp-i|X722 10GbE SFP+|drivers/net/intelxl.c|no|
+|pci|8086|37d9|||intelxlvf|x722-vf-hv|X722 VF (Hyper-V)|drivers/net/intelxlvf.c|no|
+|pci|8086|5200|||eepro100|eepro100-5200|Intel EtherExpress PRO/100 Intelligent Server|drivers/net/eepro100.c|no|
+|pci|8086|5201|||eepro100|eepro100-5201|Intel EtherExpress PRO/100 Intelligent Server|drivers/net/eepro100.c|no|
+|pci|8086|5502|||intel|i225lmvp|I225-LMvP|drivers/net/intel.c|no|
+|pci|8086|550a|||intel|i219lm-18|I219-LM (18)|drivers/net/intel.c|no|
+|pci|8086|550b|||intel|i219v-18|I219-V (18)|drivers/net/intel.c|no|
+|pci|8086|550c|||intel|i219lm-19|I219-LM (19)|drivers/net/intel.c|no|
+|pci|8086|550d|||intel|i219v-19|I219-V (19)|drivers/net/intel.c|no|
+|pci|8086|550e|||intel|i219lm-20|I219-LM (20)|drivers/net/intel.c|no|
+|pci|8086|550f|||intel|i219v-20|I219-V (20)|drivers/net/intel.c|no|
+|pci|8086|5510|||intel|i219lm-21|I219-LM (21)|drivers/net/intel.c|no|
+|pci|8086|5511|||intel|i219v-21|I219-V (21)|drivers/net/intel.c|no|
+|pci|8086|57a0|||intel|i219lm-24|I219-LM (24)|drivers/net/intel.c|no|
+|pci|8086|57a1|||intel|i219v-24|I219-V (24)|drivers/net/intel.c|no|
+|pci|8086|57b0|||intelxl|e610-10gt|E610 10GBASE T|drivers/net/intelxl.c|no|
+|pci|8086|57b1|||intelxl|e610-2gt|E610 2.5GBASE T|drivers/net/intelxl.c|no|
+|pci|8086|57b2|||intelxl|e610-sgmii|E610 SGMII|drivers/net/intelxl.c|no|
+|pci|8086|57b3|||intel|i219lm-25|I219-LM (25)|drivers/net/intel.c|no|
+|pci|8086|57b4|||intel|i219v-25|I219-V (25)|drivers/net/intel.c|no|
+|pci|8086|57b5|||intel|i219lm-26|I219-LM (26)|drivers/net/intel.c|no|
+|pci|8086|57b6|||intel|i219v-26|I219-V (26)|drivers/net/intel.c|no|
+|pci|8086|57b7|||intel|i219lm-27|I219-LM (27)|drivers/net/intel.c|no|
+|pci|8086|57b8|||intel|i219v-27|I219-V (27)|drivers/net/intel.c|no|
+|pci|8086|57b9|||intel|i219lm-29|I219-LM (29)|drivers/net/intel.c|no|
+|pci|8086|57ba|||intel|i219v-29|I219-V (29)|drivers/net/intel.c|no|
+|pci|8086|9d2f|||xhci|xhci-skylake|xHCI (Skylake)|drivers/usb/xhci.c|no|
+|pci|8086|ffff|||xhci|xhci-pch|xHCI (Intel PCH)|drivers/usb/xhci.c|no|
+|pci|8e2e|3000|||ns8390|ktiet32p2|KTI ET32P2|drivers/net/ns8390.c|yes|
+|pci|a727|0013|||ath5k|ath5212c|3com Ath 5212|drivers/net/ath/ath5k/ath5k.c|no|
+|pci|ec80|ec00|||prism2_plx|f5d6000|Belkin F5D6000|drivers/net/prism2_plx.c|yes|
+|pci|fefe|efef|||pnic|pnic|Bochs Pseudo NIC Adaptor|drivers/net/pnic.c|no|
+|pci|ffff|8139|||realtek|clonse8139|Cloned 8139|drivers/net/realtek.c|no|
+|pci|ffff|ffff|||undi|undipci|UNDI (PCI)|arch/x86/drivers/net/undi.c|no|
+|pci|ffff|ffff|||pcibridge|bridge|Bridge|drivers/bus/pcibridge.c|no|
+|pci|ffff|ffff|||ehci|ehci|EHCI|drivers/usb/ehci.c|no|
+|pci|ffff|ffff|||uhci|uhci|UHCI|drivers/usb/uhci.c|no|
+|pci|ffff|ffff|||xhci|xhci|xHCI|drivers/usb/xhci.c|no|
+|isa|||||3c509-eisa|3c509-eisa|3c509 (EISA)|drivers/net/3c509-eisa.c|yes|
+|isa|||||3c509|3c509|3c509|drivers/net/3c509.c|yes|
+|isa|||||3c515|3c515|3c515 Fast EtherLink ISAPnP|drivers/net/3c515.c|yes|
+|isa|||||3c529|3c529|3c529 == MCA 3c509|drivers/net/3c529.c|yes|
+|isa|||||cs89x0|cs89x0|Crystal Semiconductor CS89x0|drivers/net/cs89x0.c|yes|
+|isa|||||depca|depca|Digital DE100 and DE200|drivers/net/depca.c|yes|
+|isa|||||eepro|eepro|Intel Etherexpress Pro/10|drivers/net/eepro.c|yes|
+|isa|||||ne2k_isa|ne|NE1000/2000 and clones|drivers/net/ne2k_isa.c|yes|
+|isa|||||ns8390|wd|WD8003/8013, SMC8216/8416, SMC 83c790 (EtherEZ)|drivers/net/ns8390.c|yes|
+|isa|||||ns8390|3c503|3Com503, Etherlink II[/16]|drivers/net/ns8390.c|yes|
+|isa|||||ns8390|ne|NE1000/2000 and clones|drivers/net/ns8390.c|yes|
+|isa|||||smc9000|smc9000|SMC9000|drivers/net/smc9000.c|yes|

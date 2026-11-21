@@ -16,8 +16,19 @@ networks:
     ipam:
       config:
         - subnet: ${VNET:-192.168.101.0/24}
-
 services:
+  pxe-ipxe:
+    build:
+      context: ipxe
+      args:
+        - ALPINE_BASE_VERSION=3.20
+    container_name: pxe-ipxe
+    environment:
+      PXE_VOLUME: "/pxe"
+    volumes:
+      - netboot-data:/pxe
+    network_mode: none
+    restart: "no"
   pxe-ansible:
     build:
       context: ansible
@@ -41,6 +52,8 @@ services:
       start_period: 10s
   pxe-dnsmasq:
     depends_on:
+      pxe-ipxe:
+        condition: service_completed_successfully
       pxe-ansible:
         condition: service_healthy
     build:
@@ -63,6 +76,7 @@ services:
       PXE_MAC:
       PXE_IP: *pxe_ip
       PXE_CONSOLE: *pxe_console
+      PXE_HOSTNAME: ${PXE_HOSTNAME}
     volumes:
       - netboot-data:/pxe
     healthcheck:
